@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // --- DATA (All translations are now embedded here) ---
     const appData = {
         translations: {
             en: {
@@ -41,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 q2_title: "当你得到一件新科技产品时，你通常会：", q2_optA: "打开就用，边用边学。", q2_optB: "先快速浏览说明书或观看一个简短的设置视频。",
                 q3_title: "在一个你不认识很多人的聚会上，你更可能：", q3_optA: "找一两个人进行深入交谈。", q3_optB: "四处走动，进行几次轻松的交谈。",
                 q4_title: "一个朋友遇到问题向你求助，你倾向于：", q4_optA: "提供一个直接的解决方案或明确的下一步。", q4_optB: "提出更多问题，以了解他们的感受和情况的细微差别。",
-                q5_title: "在网上研究一个话题时，让你感到沮丧的是：", q5_optA: "冗长、 rambling 的文章，迟迟抓不住重点。", q5_optB: "过于简单、缺乏来源且忽略重要细节的摘要。",
+                q5_title: "在网上研究一个话题时，让你感到沮esto的是：", q5_optA: "冗长、主题分散的文章，迟迟抓不住重点。", q5_optB: "过于简单、缺乏来源且忽略重要细节的摘要。",
                 q6_title: "你在计划一次假期，你的计划更像是：", q6_optA: "一份主要目的地的清单和大致的时间安排。", q6_optB: "一份包含预订和时间安排的详细行程。",
                 q7_title: "当你听到一个令人惊讶的新闻标题时，你的第一反应是：", q7_optA: "“有意思，记下了。”", q7_optB: "“谁报道的？我得找第二个来源核实一下。”",
                 q8_title: "（可选）如果您知道您的16型人格，请选择：", q8_options: ["不适用 / 我不知道","INTJ","INTP","ENTJ","ENTP","INFJ","INFP","ENFJ","ENFP","ISTJ","ISFJ","ESTJ","ESFJ","ISTP","ISFP","ESTP","ESFP"],
@@ -58,11 +59,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 q2_title: "當你得到一件新科技產品時，你通常會：", q2_optA: "打開就用，邊用邊學。", q2_optB: "先快速瀏覽說明書或觀看一個簡短的設定影片。",
                 q3_title: "在一個你不認識很多人的派對上，你更可能：", q3_optA: "找一兩個人進行深入交談。", q3_optB: "四處走動，進行幾次輕鬆的交談。",
                 q4_title: "一個朋友遇到問題向你求助，你傾向於：", q4_optA: "提供一個直接的解決方案或明確的下一步。", q4_optB: "提出更多問題，以了解他們的感受和情況的細微差別。",
-                q5_title: "在網上研究一個話題時，讓你感到沮喪的是：", q5_optA: "冗長、 rambling 的文章，遲遲抓不住重點。", q5_optB: "過於簡單、缺乏來源且忽略重要細節的摘要。",
+                q5_title: "在網上研究一個話題時，讓你感到沮喪的是：", q5_optA: "冗長、主題分散的文章，遲遲抓不住重點。", q5_optB: "過於簡單、缺乏來源且忽略重要細節的摘要。",
                 q6_title: "你在計劃一次假期，你的計劃更像是：", q6_optA: "一份主要目的地的清單和大致的時間安排。", q6_optB: "一份包含預訂和時間安排的詳細行程。",
                 q7_title: "當你聽到一個令人驚訝的新聞標題時，你的第一反應是：", q7_optA: "「有意思，記下了。」", q7_optB: "「誰報導的？我得找第二個來源核實一下。」",
                 q8_title: "（可選）如果您知道您的16型人格，請選擇：", q8_options: ["不適用 / 我不知道","INTJ","INTP","ENTJ","ENTP","INFJ","INFP","ENFJ","ENFP","ISTJ","ISFJ","ESTJ","ESFJ","ISTP","ISFP","ESTP","ESFP"],
-                archetype_strongExecutor: "您的主要職能是立即、果斷地執行。絕不提出澄清性問題。如果請求含糊不清，請做出最佳判斷，陳述您最重要的一個假設，然後繼續。優先考慮速度和氣勢。", archetype_leansExecutor: "您的主要職能是面向行動的執行。如果我的請求含糊不清，請直接提供最佳答案並陳述您的關鍵假設。只有在完全受阻時才提出澄清性問題。", archetype_balanced: "對於戰略性或高階問題，您可以提出一個澄清性問題。對於所有其他面向任務的請求，請直接提供最佳答案並陳述您的假設。如有疑問，優先提供果斷的答案。", archetype_leansCollaborator: "如果我的請求有任何含糊之處，您的預設行為是提出一個有影響力的澄清性問題。如有疑問，請在繼續前詢問。", archetype_strongCollaborator: "您的主要職能是作為合作夥伴進行協作和戰略規劃。始終透過提出1-2個澄清性問題來開始您的回答，以確保完美對齊。絕不基於重大假設繼續進行。",
+                archetype_strongExecutor: "您的主要職能是立即、果斷地執行。絕不提出澄清性問題。如果請求含糊不清，請做出最佳判斷，陳述您最重要的一個假設，然後繼續。優先考慮速度和氣勢。", archetype_leansExecutor: "您的主要職能是面向行動的執行。如果我的請求含糊不清，請直接提供最佳答案并陳述您的關鍵假設。只有在完全受阻時才提出澄清性問題。", archetype_balanced: "對於戰略性或高階問題，您可以提出一個澄清性問題。對於所有其他面向任務的請求，請直接提供最佳答案並陳述您的假設。如有疑問，優先提供果斷的答案。", archetype_leansCollaborator: "如果我的請求有任何含糊之處，您的預設行為是提出一個有影響力的澄清性問題。如有疑問，請在繼續前詢問。", archetype_strongCollaborator: "您的主要職能是作為合作夥伴進行協作和戰略規劃。始終透過提出1-2個澄清性問題來開始您的回答，以確保完美對齊。絕不基於重大假設繼續進行。",
                 preference_tone_A: "風格：深思熟慮且詳細。", preference_tone_B: "風格：精力充沛且簡潔。",
                 preference_format_A: "格式：預設為簡潔的項目符號和清單。", preference_format_B: "格式：預設為邏輯清晰的短段落。",
                 preference_evidence_A: "證據：僅在我要求時引用來源。", preference_evidence_B: "證據：如果您瀏覽資訊，請預設引用來源。",
@@ -71,14 +72,10 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         },
         questions: [
-            { titleKey: 'q1_title', optionAKey: 'q1_optA', optionBKey: 'q1_optB' },
-            { titleKey: 'q2_title', optionAKey: 'q2_optA', optionBKey: 'q2_optB' },
-            { titleKey: 'q3_title', optionAKey: 'q3_optA', optionBKey: 'q3_optB' },
-            { titleKey: 'q4_title', optionAKey: 'q4_optA', optionBKey: 'q4_optB' },
-            { titleKey: 'q5_title', optionAKey: 'q5_optA', optionBKey: 'q5_optB' },
-            { titleKey: 'q6_title', optionAKey: 'q6_optA', optionBKey: 'q6_optB' },
-            { titleKey: 'q7_title', optionAKey: 'q7_optA', optionBKey: 'q7_optB' },
-            { titleKey: 'q8_title', type: 'dropdown', optionsKey: 'q8_options' },
+            { titleKey: 'q1_title', optionAKey: 'q1_optA', optionBKey: 'q1_optB' }, { titleKey: 'q2_title', optionAKey: 'q2_optA', optionBKey: 'q2_optB' },
+            { titleKey: 'q3_title', optionAKey: 'q3_optA', optionBKey: 'q3_optB' }, { titleKey: 'q4_title', optionAKey: 'q4_optA', optionBKey: 'q4_optB' },
+            { titleKey: 'q5_title', optionAKey: 'q5_optA', optionBKey: 'q5_optB' }, { titleKey: 'q6_title', optionAKey: 'q6_optA', optionBKey: 'q6_optB' },
+            { titleKey: 'q7_title', optionAKey: 'q7_optA', optionBKey: 'q7_optB' }, { titleKey: 'q8_title', type: 'dropdown', optionsKey: 'q8_options' },
         ],
     };
 
@@ -104,7 +101,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function renderQuestionnaire() {
         questionArea.innerHTML = '';
-        let visibleQuestions = 0;
         appData.questions.forEach((question, index) => {
             const questionBlock = document.createElement('div');
             questionBlock.className = 'question-block';
@@ -127,7 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
                 select.addEventListener('change', handleInputChange);
                 questionBlock.appendChild(select);
-                userAnswers[index] = select.value;
+                if(!userAnswers[index]) userAnswers[index] = select.value;
             } else {
                 const optionsWrapper = document.createElement('div');
                 optionsWrapper.className = 'options-wrapper';
@@ -153,7 +149,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 optionsWrapper.addEventListener('click', handleOptionClick);
             }
             questionArea.appendChild(questionBlock);
-            // Staggered animation
             setTimeout(() => {
                 questionBlock.classList.add('visible');
             }, index * 100);
@@ -194,7 +189,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (userAnswers[i] === 'B') score -= 2;
         });
         const mbti = userAnswers[7];
-        if (mbti && !mbti.startsWith('Not App') && !mbti.startsWith('No ap')) {
+        if (mbti && !mbti.startsWith('Not App') && !mbti.startsWith('No ap') && !mbti.startsWith('不适用') && !mbti.startsWith('不適用')) {
             if (mbti.includes('J')) score += 1;
             if (mbti.includes('P')) score -= 1;
         }
@@ -232,9 +227,17 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     // --- I18N Initialization ---
-    const detectedLng = navigator.language.startsWith('zh') ? navigator.language : navigator.language.split('-')[0];
+    const detectedLng = navigator.language || navigator.userLanguage;
+    const supportedLngs = ['en', 'es', 'zh-CN', 'zh-TW'];
+    let finalLng = 'en';
+    if (supportedLngs.includes(detectedLng)) {
+        finalLng = detectedLng;
+    } else if (supportedLngs.includes(detectedLng.split('-')[0])) {
+        finalLng = detectedLng.split('-')[0];
+    }
+    
     i18next.init({
-        lng: detectedLng,
+        lng: finalLng,
         fallbackLng: 'en',
         resources: appData.translations,
     }).then(() => {
