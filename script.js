@@ -91,19 +91,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function updateContent() {
         const lng = i18next.language;
-        const translations = appData.translations[lng] || appData.translations.en;
+        // The translations object is no longer needed here as i18next handles it.
 
         document.querySelectorAll('[data-i18n]').forEach(el => {
             const key = el.getAttribute('data-i18n');
-            if (translations[key]) {
-                el.innerHTML = translations[key];
-            }
+            el.innerHTML = i18next.t(key);
         });
         document.querySelectorAll('[data-i18n-title]').forEach(el => {
             const key = el.getAttribute('data-i18n-title');
-            if (translations[key]) {
-                el.setAttribute('title', translations[key]);
-            }
+            el.setAttribute('title', i18next.t(key));
         });
         renderQuestionnaire();
     }
@@ -248,6 +244,7 @@ document.addEventListener('DOMContentLoaded', () => {
     i18next.init({
         lng: finalLng,
         fallbackLng: 'en',
+        resources: appData.translations,
     }).then(() => {
         langSwitcher.value = i18next.language;
         updateContent();
