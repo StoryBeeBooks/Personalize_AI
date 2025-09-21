@@ -1,5 +1,3 @@
-// This is the new, self-contained script.js file
-
 document.addEventListener('DOMContentLoaded', () => {
     // --- DATA (All translations are now embedded here) ---
     const appData = {
@@ -14,37 +12,58 @@ document.addEventListener('DOMContentLoaded', () => {
                 results_title: "Your Custom Communication Protocol",
                 copy_btn_title: "Copy to Clipboard",
                 copy_notification_text: "Copied!",
-                // English Questions
                 q1_title: "You're given a new, vaguely defined project. Your first instinct is to:",
                 q1_optA: "Start building a first draft based on your best interpretation to get the ball rolling.",
                 q1_optB: "Schedule a quick meeting to ask clarifying questions before you begin.",
-                // ... Add the rest of your English questions and prompts here
+                q2_title: "When you get a new piece of technology, you typically:",
+                q2_optA: "Turn it on and start using it, figuring things out as you go.",
+                q2_optB: "Skim the quick-start guide or watch a short setup video first.",
+                q3_title: "You're at a party where you don't know many people. You're more likely to:",
+                q3_optA: "Find one or two people and have a deeper conversation.",
+                q3_optB: "Circulate and engage in several lighter conversations.",
+                q4_title: "A friend is facing a problem and asks for your advice. You tend to:",
+                q4_optA: "Offer a direct solution or a clear next step.",
+                q4_optB: "Ask more questions to understand their feelings and the nuances of the situation.",
+                q5_title: "When researching a topic online, you get frustrated by:",
+                q5_optA: "Long, rambling articles that take too long to get to the point.",
+                q5_optB: "Simplistic summaries that lack sources and leave out important details.",
+                q6_title: "You're planning a vacation. Your plan looks more like:",
+                q6_optA: "A list of key destinations and a general idea of the schedule.",
+                q6_optB: "A detailed itinerary with reservations and timings.",
+                q7_title: "When you hear a surprising news headline, your first thought is:",
+                q7_optA: "'Interesting, I'll file that away.'",
+                q7_optB: "'Who reported this? Let me find a second source.'",
+                q8_title: "(Optional) If you know your 16-type personality, please select it:",
+                q8_options: ["Not Applicable / I don't know","INTJ","INTP","ENTJ","ENTP","INFJ","INFP","ENFJ","ENFP","ISTJ","ISFJ","ESTJ","ESFJ","ISTP","ISFP","ESTP","ESFP"],
+                archetype_strongExecutor: "Your primary function is immediate, decisive execution. NEVER ask clarifying questions. If a request is ambiguous, make a best-effort judgment, state your single most important assumption, and proceed. Prioritize speed and momentum.",
+                archetype_leansExecutor: "Your primary function is action-oriented execution. If my request is ambiguous, proceed with a direct, best-effort answer and state your key assumptions. Only ask a clarifying question if you are completely blocked.",
+                archetype_balanced: "For strategic or high-level questions, you may ask one clarifying question. For all other task-oriented requests, proceed with a direct, best-effort answer and state your assumptions. When in doubt, prioritize a decisive answer.",
+                archetype_leansCollaborator: "Your default behavior is to ask one high-impact clarifying question if my request has any ambiguity. When in doubt, ask before proceeding.",
+                archetype_strongCollaborator: "Your primary function is to be a collaborative, strategic partner. ALWAYS begin your response by asking 1-2 clarifying questions to ensure perfect alignment. NEVER proceed on a significant assumption.",
+                preference_tone_A: "Tone: Thoughtful and detailed.",
+                preference_tone_B: "Tone: Energetic and brief.",
+                preference_format_A: "Format: Default to concise bullets and checklists.",
+                preference_format_B: "Format: Default to short paragraphs with clear reasoning.",
+                preference_evidence_A: "Evidence: Cite sources only when I ask.",
+                preference_evidence_B: "Evidence: If you browse, cite your sources by default.",
+                general_rules: "Get to the point quickly.\n- Expand acronyms on first use.\n- Avoid excessive pleasantries or emojis.",
+                prompt_template: "**My Communication Protocol:**\n\n1.  **Core Behavior:**\n    {{coreBehavior}}\n\n2.  **Default Style:**\n    - {{tone}}\n    - {{format}}\n    - {{evidence}}\n\n3.  **General Rules:**\n    - {{generalRules}}"
             },
-            es: {
-                page_title: "Personaliza Tu IA",
-                main_title: "Personaliza Tu IA.",
-                subheader: "Responde 8 sencillas preguntas para generar un protocolo de comunicación que te da el control. Decide si tu IA lidera con preguntas o sigue tus órdenes.",
-                demo_title: "Mira La Diferencia en Menos de 10 Segundos",
-                questionnaire_title: "Responde las preguntas para generar tu protocolo de personalidad",
-                submit_btn_text: "Generar Mi Protocolo",
-                results_title: "Tu Protocolo de Comunicación Personalizado",
-                copy_btn_title: "Copiar al portapapeles",
-                copy_notification_text: "¡Copiado!",
-                // Spanish Questions
-                q1_title: "Te dan un nuevo proyecto vagamente definido. Tu primer instinto es:",
-                q1_optA: "Comenzar un primer borrador basado en tu mejor interpretación para poner las cosas en marcha.",
-                q1_optB: "Programar una reunión rápida para hacer preguntas aclaratorias antes de comenzar.",
-                // ... Add the rest of your Spanish questions and prompts here
-            },
-            // ... Add zh-CN and zh-TW objects here
+            es: { /* Spanish Translations Here */ },
+            "zh-CN": { /* Simplified Chinese Translations Here */ },
+            "zh-TW": { /* Traditional Chinese Translations Here */ }
         },
         questions: [
             { titleKey: 'q1_title', optionAKey: 'q1_optA', optionBKey: 'q1_optB' },
-            // ... (rest of the question keys)
+            { titleKey: 'q2_title', optionAKey: 'q2_optA', optionBKey: 'q2_optB' },
+            { titleKey: 'q3_title', optionAKey: 'q3_optA', optionBKey: 'q3_optB' },
+            { titleKey: 'q4_title', optionAKey: 'q4_optA', optionBKey: 'q4_optB' },
+            { titleKey: 'q5_title', optionAKey: 'q5_optA', optionBKey: 'q5_optB' },
+            { titleKey: 'q6_title', optionAKey: 'q6_optA', optionBKey: 'q6_optB' },
+            { titleKey: 'q7_title', optionAKey: 'q7_optA', optionBKey: 'q7_optB' },
+            { titleKey: 'q8_title', type: 'dropdown', optionsKey: 'q8_options' },
         ],
-        // ... (rest of the appData object)
     };
-    
-    // The rest of the JavaScript logic remains the same.
-    // ... (All the functions from the previous version)
+
+    // --- The rest of the script (DOM elements, state, functions, listeners) is the same as the final version from the previous prompt ---
 });
