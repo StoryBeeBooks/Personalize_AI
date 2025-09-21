@@ -1,88 +1,21 @@
-document.addEventListener('DOMContentLoaded', () => {
-  // --- DATA ---
+document.addEventListener('DOMContentLoaded', async () => {
+  // --- DATA (Now using keys for i18n) ---
   const appData = {
     questions: [
-      {
-        title: "You're given a new, vaguely defined project. Your first instinct is to:",
-        optionA:
-          'Start building a first draft based on your best interpretation to get the ball rolling.',
-        optionB: 'Schedule a quick meeting to ask clarifying questions before you begin.',
-      },
-      {
-        title: "When you get a new piece of technology, you typically:",
-        optionA: "Turn it on and start using it, figuring things out as you go.",
-        optionB: "Skim the quick-start guide or watch a short setup video first.",
-      },
-      {
-        title: "You're at a party where you don't know many people. You're more likely to:",
-        optionA: "Find one or two people and have a deeper conversation.",
-        optionB: "Circulate and engage in several lighter conversations.",
-      },
-      {
-        title: "A friend is facing a problem and asks for your advice. You tend to:",
-        optionA: "Offer a direct solution or a clear next step.",
-        optionB: "Ask more questions to understand their feelings and the nuances of the situation.",
-      },
-      {
-        title: "When researching a topic online, you get frustrated by:",
-        optionA: "Long, rambling articles that take too long to get to the point.",
-        optionB: "Simplistic summaries that lack sources and leave out important details.",
-      },
-      {
-        title: "You're planning a vacation. Your plan looks more like:",
-        optionA: "A list of key destinations and a general idea of the schedule.",
-        optionB: "A detailed itinerary with reservations and timings.",
-      },
-      {
-        title: "When you hear a surprising news headline, your first thought is:",
-        optionA: "'Interesting, I'll file that away.'",
-        optionB: "'Who reported this? Let me find a second source.'",
-      },
-      {
-        title: '(Optional) If you know your 16-type personality, please select it:',
-        type: 'dropdown',
-        options: [
-          "Not Applicable / I don't know",
-          'INTJ', 'INTP', 'ENTJ', 'ENTP',
-          'INFJ', 'INFP', 'ENFJ', 'ENFP',
-          'ISTJ', 'ISFJ', 'ESTJ', 'ESFJ',
-          'ISTP', 'ISFP', 'ESTP', 'ESFP',
-        ],
-      },
+      { titleKey: 'q1_title', optionAKey: 'q1_optA', optionBKey: 'q1_optB' },
+      { titleKey: 'q2_title', optionAKey: 'q2_optA', optionBKey: 'q2_optB' },
+      { titleKey: 'q3_title', optionAKey: 'q3_optA', optionBKey: 'q3_optB' },
+      { titleKey: 'q4_title', optionAKey: 'q4_optA', optionBKey: 'q4_optB' },
+      { titleKey: 'q5_title', optionAKey: 'q5_optA', optionBKey: 'q5_optB' },
+      { titleKey: 'q6_title', optionAKey: 'q6_optA', optionBKey: 'q6_optB' },
+      { titleKey: 'q7_title', optionAKey: 'q7_optA', optionBKey: 'q7_optB' },
+      { titleKey: 'q8_title', type: 'dropdown', optionsKey: 'q8_options' },
     ],
-    prompts: {
-      archetypes: {
-        strongExecutor:
-          'Your primary function is immediate, decisive execution. NEVER ask clarifying questions. If a request is ambiguous, make a best-effort judgment, state your single most important assumption, and proceed. Prioritize speed and momentum.',
-        leansExecutor:
-          'Your primary function is action-oriented execution. If my request is ambiguous, proceed with a direct, best-effort answer and state your key assumptions. Only ask a clarifying question if you are completely blocked.',
-        balanced:
-          'For strategic or high-level questions, you may ask one clarifying question. For all other task-oriented requests, proceed with a direct, best-effort answer and state your assumptions. When in doubt, prioritize a decisive answer.',
-        leansCollaborator:
-          'Your default behavior is to ask one high-impact clarifying question if my request has any ambiguity. When in doubt, ask before proceeding.',
-        strongCollaborator:
-          'Your primary function is to be a collaborative, strategic partner. ALWAYS begin your response by asking 1-2 clarifying questions to ensure perfect alignment. NEVER proceed on a significant assumption.',
-      },
-      preferences: {
-        tone: { 
-            A: 'Tone: Thoughtful and detailed.', 
-            B: 'Tone: Energetic and brief.' 
-        },
-        format: {
-          A: 'Format: Default to concise bullets and checklists.',
-          B: 'Format: Default to short paragraphs with clear reasoning.',
-        },
-        evidence: {
-          A: 'Evidence: Cite sources only when I ask.',
-          B: 'Evidence: If you browse, cite your sources by default.',
-        },
-      },
-      generalRules:
-        'Get to the point quickly.\n- Expand acronyms on first use.\n- Avoid excessive pleasantries or emojis.',
-    },
+    // Prompt generation logic now uses keys
   };
 
   // --- DOM ELEMENTS ---
+  const langSwitcher = document.getElementById('lang-switcher');
   const questionArea = document.getElementById('question-area');
   const submitBtn = document.getElementById('submit-btn');
   const resultsContainer = document.getElementById('results-container');
@@ -93,32 +26,66 @@ document.addEventListener('DOMContentLoaded', () => {
   // --- STATE ---
   let userAnswers = {};
 
-  // --- FUNCTIONS ---
+  // --- I18N SETUP ---
+  async function fetchTranslations() {
+    const langs = ['en', 'es', 'zh-CN', 'zh-TW'];
+    const resources = {};
+    for (const lang of langs) {
+      const response = await fetch(`./locales/${lang}.json`);
+      const translation = await response.json();
+      // We also need to add our questionnaire data to the translation resources
+      const questionsResponse = await fetch(`./locales/questions/${lang}.json`);
+      const questionsTranslation = await questionsResponse.json();
+      resources[lang] = { translation: {...translation, ...questionsTranslation} };
+    }
+    return resources;
+  }
   
+  const resources = await fetchTranslations();
+  
+  await i18next.init({
+    lng: navigator.language.startsWith('zh') ? navigator.language : navigator.language.split('-')[0],
+    fallbackLng: 'en',
+    resources: resources,
+  });
+
+  // --- FUNCTIONS ---
+  function updateContent() {
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      el.innerHTML = i18next.t(key);
+    });
+    document.querySelectorAll('[data-i18n-title]').forEach(el => {
+        const key = el.getAttribute('data-i18n-title');
+        el.setAttribute('title', i18next.t(key));
+    });
+  }
+
   function renderQuestionnaire() {
+    questionArea.innerHTML = ''; // Clear previous questionnaire
     appData.questions.forEach((question, index) => {
       const questionBlock = document.createElement('div');
       questionBlock.className = 'question-block';
       
       const title = document.createElement('p');
       title.className = 'question-title';
-      title.textContent = `${index + 1}. ${question.title}`;
+      title.textContent = `${index + 1}. ${i18next.t(question.titleKey)}`;
       questionBlock.appendChild(title);
 
       if (question.type === 'dropdown') {
         const select = document.createElement('select');
         select.id = `question-${index}`;
         select.dataset.questionIndex = index;
-        question.options.forEach(opt => {
-          const option = document.createElement('option');
-          option.value = opt;
-          option.textContent = opt;
-          select.appendChild(option);
+        const options = i18next.t(question.optionsKey, { returnObjects: true });
+        options.forEach(opt => {
+          const optionEl = document.createElement('option');
+          optionEl.value = opt;
+          optionEl.textContent = opt;
+          select.appendChild(optionEl);
         });
         select.addEventListener('change', handleInputChange);
         questionBlock.appendChild(select);
-        // Initialize answer for dropdown
-        userAnswers[index] = select.value;
+        if(!userAnswers[index]) userAnswers[index] = select.value;
       } else {
         const optionsWrapper = document.createElement('div');
         optionsWrapper.className = 'options-wrapper';
@@ -127,25 +94,29 @@ document.addEventListener('DOMContentLoaded', () => {
         btnA.className = 'option-btn';
         btnA.dataset.choice = 'A';
         btnA.dataset.questionIndex = index;
-        btnA.textContent = question.optionA;
+        btnA.textContent = i18next.t(question.optionAKey);
         
         const btnB = document.createElement('button');
         btnB.className = 'option-btn';
         btnB.dataset.choice = 'B';
         btnB.dataset.questionIndex = index;
-        btnB.textContent = question.optionB;
+        btnB.textContent = i18next.t(question.optionBKey);
+
+        // Re-apply selected class if answer exists
+        if (userAnswers[index] === 'A') btnA.classList.add('selected');
+        if (userAnswers[index] === 'B') btnB.classList.add('selected');
         
         optionsWrapper.appendChild(btnA);
         optionsWrapper.appendChild(btnB);
         questionBlock.appendChild(optionsWrapper);
-
         optionsWrapper.addEventListener('click', handleOptionClick);
       }
       questionArea.appendChild(questionBlock);
     });
   }
-
+  
   function handleOptionClick(event) {
+    // ... (rest of the functions are the same as before)
     const target = event.target.closest('.option-btn');
     if (target) {
       const questionIndex = target.dataset.questionIndex;
@@ -153,7 +124,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
       userAnswers[questionIndex] = choice;
 
-      // Update selection visual
       const siblings = target.parentElement.querySelectorAll('.option-btn');
       siblings.forEach(sib => sib.classList.remove('selected'));
       target.classList.add('selected');
@@ -165,78 +135,56 @@ document.addEventListener('DOMContentLoaded', () => {
   function handleInputChange(event) {
     const questionIndex = event.target.dataset.questionIndex;
     userAnswers[questionIndex] = event.target.value;
-    // No need to call checkCompletion here, as it's optional
   }
   
   function checkCompletion() {
     const requiredQuestions = 7;
-    let answeredCount = 0;
-    for (let i = 0; i < requiredQuestions; i++) {
-        if (userAnswers[i]) {
-            answeredCount++;
-        }
-    }
-    
+    const answeredCount = Object.keys(userAnswers).filter(k => k < requiredQuestions).length;
     if (answeredCount >= requiredQuestions) {
       submitBtn.style.display = 'block';
     }
   }
 
   function generatePrompt() {
-    // Scoring logic
     let score = 0;
-    const executorQuestions = [0, 1, 3, 5]; // Corresponds to Q1, Q2, Q4, Q6
+    const executorQuestions = [0, 1, 3, 5];
     executorQuestions.forEach(i => {
       if (userAnswers[i] === 'A') score += 2;
       if (userAnswers[i] === 'B') score -= 2;
     });
 
     const mbti = userAnswers[7];
-    if (mbti && mbti !== "Not Applicable / I don't know") {
+    if (mbti && !mbti.startsWith('Not App')) {
         if (mbti.includes('J')) score += 1;
         if (mbti.includes('P')) score -= 1;
     }
 
-    // Determine archetype
     let archetypeKey;
-    if (score >= 4) archetypeKey = 'strongExecutor';
-    else if (score >= 2) archetypeKey = 'leansExecutor';
-    else if (score >= -1) archetypeKey = 'balanced';
-    else if (score >= -3) archetypeKey = 'leansCollaborator';
-    else archetypeKey = 'strongCollaborator';
+    if (score >= 4) archetypeKey = 'archetype_strongExecutor';
+    else if (score >= 2) archetypeKey = 'archetype_leansExecutor';
+    else if (score >= -1) archetypeKey = 'archetype_balanced';
+    else if (score >= -3) archetypeKey = 'archetype_leansCollaborator';
+    else archetypeKey = 'archetype_strongCollaborator';
     
-    // Get preference choices
-    const toneChoice = userAnswers[2]; // Q3
-    const formatChoice = userAnswers[4]; // Q5
-    const evidenceChoice = userAnswers[6]; // Q7
+    const toneChoice = userAnswers[2];
+    const formatChoice = userAnswers[4];
+    const evidenceChoice = userAnswers[6];
+
+    const finalPrompt = i18next.t('prompt_template', {
+      coreBehavior: i18next.t(archetypeKey),
+      tone: i18next.t(`preference_tone_${toneChoice}`),
+      format: i18next.t(`preference_format_${formatChoice}`),
+      evidence: i18next.t(`preference_evidence_${evidenceChoice}`),
+      generalRules: i18next.t('general_rules').replace(/\n/g, '\n    - '),
+      interpolation: { escapeValue: false }
+    });
     
-    // Assemble prompt
-    const coreBehavior = appData.prompts.archetypes[archetypeKey];
-    const tone = appData.prompts.preferences.tone[toneChoice];
-    const format = appData.prompts.preferences.format[formatChoice];
-    const evidence = appData.prompts.preferences.evidence[evidenceChoice];
-    
-    const finalPrompt = `**My Communication Protocol:**
-
-1.  **Core Behavior:**
-    ${coreBehavior}
-
-2.  **Default Style:**
-    - ${tone}
-    - ${format}
-    - ${evidence}
-
-3.  **General Rules:**
-    - ${appData.prompts.generalRules.replace(/\n/g, '\n    - ')}`;
-
     promptOutput.value = finalPrompt;
     resultsContainer.style.display = 'block';
     resultsContainer.scrollIntoView({ behavior: 'smooth' });
   }
 
   function copyPrompt() {
-    promptOutput.select();
-    // Use the modern Clipboard API for better security and reliability
     navigator.clipboard.writeText(promptOutput.value).then(() => {
         copyNotification.style.display = 'block';
         setTimeout(() => {
@@ -248,9 +196,17 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // --- EVENT LISTENERS ---
+  langSwitcher.addEventListener('change', (e) => {
+    i18next.changeLanguage(e.target.value, () => {
+      updateContent();
+      renderQuestionnaire();
+    });
+  });
   submitBtn.addEventListener('click', generatePrompt);
   copyBtn.addEventListener('click', copyPrompt);
   
   // --- INITIALIZATION ---
+  langSwitcher.value = i18next.language;
+  updateContent();
   renderQuestionnaire();
 });
