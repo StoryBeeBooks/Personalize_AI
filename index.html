@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Personalize_AI - Personalize Your AI</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>Personalize Your AI.</h1>
+        <p class="subheader">
+          Answer 8 simple questions to generate a communication protocol that puts you in
+          control. Decide whether your AI leads with questions or follows your commands.
+        </p>
+      </header>
+      <section id="demo-section">
+        <h2>See The Difference.</h2>
+        <div class="demo-container">
+          <div class="demo-image-wrapper">
+            <h3>Generic AI Response</h3>
+            <img
+              src="./images/generic-response.webp"
+              alt="A generic, conversational response from a standard AI."
+            />
+          </div>
+          <div class="demo-image-wrapper">
+            <h3>Your Personalized AI Response</h3>
+            <img
+              src="./images/personalized-response.webp"
+              alt="A direct, efficient response from an AI using a custom protocol."
+            />
+          </div>
+        </div>
+      </section>
+      <div id="questionnaire-container">
+        <h2>Now, Personalize Your Own AI.</h2>
+        <p>Take the 60-second questionnaire to generate your protocol.</p>
+        <h3 id="question-title"></h3>
+        <div id="options-container"></div>
+        <button id="next-btn">Next</button>
+      </div>
+      <div id="results-container" style="display: none;">
+        <h2>Your Custom Communication Protocol</h2>
+        <textarea id="prompt-output" readonly></textarea>
+        <button id="copy-btn">Copy to Clipboard</button>
+        <div id="copy-notification" style="display: none;">Copied!</div>
+      </div>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
