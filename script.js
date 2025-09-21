@@ -90,11 +90,20 @@ document.addEventListener('DOMContentLoaded', () => {
     let userAnswers = {};
 
     function updateContent() {
+        const lng = i18next.language;
+        const translations = appData.translations[lng] || appData.translations.en;
+
         document.querySelectorAll('[data-i18n]').forEach(el => {
-            el.innerHTML = i18next.t(el.getAttribute('data-i18n'));
+            const key = el.getAttribute('data-i18n');
+            if (translations[key]) {
+                el.innerHTML = translations[key];
+            }
         });
         document.querySelectorAll('[data-i18n-title]').forEach(el => {
-            el.setAttribute('title', i18next.t(el.getAttribute('data-i18n-title')));
+            const key = el.getAttribute('data-i18n-title');
+            if (translations[key]) {
+                el.setAttribute('title', translations[key]);
+            }
         });
         renderQuestionnaire();
     }
@@ -239,7 +248,6 @@ document.addEventListener('DOMContentLoaded', () => {
     i18next.init({
         lng: finalLng,
         fallbackLng: 'en',
-        resources: appData.translations,
     }).then(() => {
         langSwitcher.value = i18next.language;
         updateContent();
