@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const title = document.createElement('p');
             title.className = 'question-title';
-            title.textContent = i18next.t(question.titleKey);
+            title.textContent = `${index + 1}. ${i18next.t(question.titleKey)}`;
             questionBlock.appendChild(title);
 
             if (question.type === 'dropdown') {
@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function checkCompletion() {
-        const requiredQuestionsCount = appData.questions.filter(q => q.type !== 'dropdown').length;
+        const requiredQuestionsCount = appData.questions.length - 1; // All but the optional Q8
         const answeredCount = Object.keys(userAnswers).filter(k => userAnswers[k] && k < requiredQuestionsCount).length;
         
         if (answeredCount >= requiredQuestionsCount) {
@@ -122,14 +122,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function generatePrompt() {
         let score = 0;
-        const executorQuestions = [0, 1, 3, 5];
+        const executorQuestions = [0, 1, 3, 5]; // Q1, Q2, Q4, Q6
         executorQuestions.forEach(i => {
             if (userAnswers[i] === 'A') score += 2;
             if (userAnswers[i] === 'B') score -= 2;
         });
 
         const mbti = userAnswers[7];
-        if (mbti && !i18next.t('q8_options.0').includes(mbti)) {
+        if (mbti && !i18next.t('q8_options.0').includes(mbti)) { // Check it's not the "Not Applicable" option
             if (mbti.includes('J')) score += 1;
             if (mbti.includes('P')) score -= 1;
         }
@@ -141,9 +141,9 @@ document.addEventListener('DOMContentLoaded', () => {
         else if (score >= -3) archetypeKey = 'archetype_leansCollaborator';
         else archetypeKey = 'archetype_strongCollaborator';
 
-        const toneChoice = userAnswers[2];
-        const formatChoice = userAnswers[4];
-        const evidenceChoice = userAnswers[6];
+        const toneChoice = userAnswers[2]; // Q3
+        const formatChoice = userAnswers[4]; // Q5
+        const evidenceChoice = userAnswers[6]; // Q7
 
         const finalPrompt = i18next.t('prompt_template', {
             coreBehavior: i18next.t(archetypeKey),

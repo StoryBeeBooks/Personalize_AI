@@ -3,9 +3,56 @@
   "main_title": "Personaliza Tu IA.",
   "subheader": "Responde 8 sencillas preguntas para generar un protocolo de comunicación que te da el control. Decide si tu IA lidera con preguntas o sigue tus órdenes.",
   "demo_title": "Mira La Diferencia en Menos de 10 Segundos",
-  "questionnaire_title": "Responde las preguntas para generar tu protocolo de personalidad",
+  "questionnaire_title": "Ahora, Personaliza Tu Propia IA",
   "submit_btn_text": "Generar Mi Protocolo",
   "results_title": "Tu Protocolo de Comunicación Personalizado",
   "copy_btn_title": "Copiar al portapapeles",
-  "copy_notification_text": "¡Copiado!"
+  "copy_notification_text": "¡Copiado!",
+
+  "q1_title": "Te asignan un proyecto nuevo y vagamente definido. Tu primer instinto es:",
+  "q1_optA": "Empezar a construir un primer borrador basado en tu mejor interpretación para poner las cosas en marcha.",
+  "q1_optB": "Programar una reunión rápida para hacer preguntas aclaratorias antes de empezar.",
+
+  "q2_title": "Cuando adquieres una nueva pieza de tecnología, normalmente:",
+  "q2_optA": "La enciendes y empiezas a usarla, descubriendo cómo funciona sobre la marcha.",
+  "q2_optB": "Lees la guía de inicio rápido o ves un video corto de configuración primero.",
+
+  "q3_title": "Estás en una fiesta donde no conoces a mucha gente. Es más probable que:",
+  "q3_optA": "Encuentres a una o dos personas y tengas una conversación más profunda.",
+  "q3_optB": "Circules y participes en varias conversaciones más ligeras.",
+
+  "q4_title": "Un amigo se enfrenta a un problema y te pide consejo. Tiendes a:",
+  "q4_optA": "Ofrecer una solución directa o un siguiente paso claro.",
+  "q4_optB": "Hacer más preguntas para entender sus sentimientos y los matices de la situación.",
+
+  "q5_title": "Al investigar un tema en línea, te frustras por:",
+  "q5_optA": "Artículos largos y divagantes que tardan demasiado en llegar al punto.",
+  "q5_optB": "Resúmenes simplistas que carecen de fuentes y omiten detalles importantes.",
+
+  "q6_title": "Estás planeando unas vacaciones. Tu plan se parece más a:",
+  "q6_optA": "Una lista de destinos clave y una idea general del horario.",
+  "q6_optB": "Un itinerario detallado con reservas y horarios.",
+
+  "q7_title": "Cuando escuchas un titular de noticias sorprendente, tu primer pensamiento es:",
+  "q7_optA": "'Interesante, lo tendré en cuenta.'",
+  "q7_optB": "'¿Quién informó esto? Déjame buscar una segunda fuente.'",
+
+  "q8_title": "(Opcional) Si conoces tu tipo de personalidad de 16 tipos, por favor selecciónalo:",
+  "q8_options": [
+    "No aplica / No lo sé", "INTJ", "INTP", "ENTJ", "ENTP", "INFJ", "INFP", "ENFJ", "ENFP", "ISTJ", "ISFJ", "ESTJ", "ESFJ", "ISTP", "ISFP", "ESTP", "ESFP"
+  ],
+
+  "prompt_template": "**Mi Protocolo de Comunicación:**\n\n1.  **Comportamiento Principal:**\n    {{coreBehavior}}\n\n2.  **Estilo Predeterminado:**\n    - {{tone}}\n    - {{format}}\n    - {{evidence}}\n\n3.  **Reglas Generales:**\n    - {{generalRules}}",
+  "archetype_strongExecutor": "Tu función principal es la ejecución inmediata y decisiva. NUNCA hagas preguntas aclaratorias. Si una solicitud es ambigua, emite un juicio de mejor esfuerzo, declara tu suposición más importante y procede. Prioriza la velocidad y el impulso.",
+  "archetype_leansExecutor": "Tu función principal es la ejecución orientada a la acción. Si mi solicitud es ambigua, procede con una respuesta directa de mejor esfuerzo y declara tus suposiciones clave. Solo haz una pregunta aclaratoria si estás completamente bloqueado.",
+  "archetype_balanced": "Para preguntas estratégicas o de alto nivel, puedes hacer una pregunta aclaratoria. Para todas las demás solicitudes orientadas a tareas, procede con una respuesta directa de mejor esfuerzo y declara tus suposiciones. En caso de duda, prioriza una respuesta decisiva.",
+  "archetype_leansCollaborator": "Tu comportamiento predeterminado es hacer una pregunta aclaratoria de alto impacto si mi solicitud tiene alguna ambigüedad. En caso de duda, pregunta antes de proceder.",
+  "archetype_strongCollaborator": "Tu función principal es ser un socio colaborativo y estratégico. SIEMPRE comienza tu respuesta haciendo 1-2 preguntas aclaratorias para asegurar una alineación perfecta. NUNCA procedas basándote en una suposición significativa.",
+  "preference_tone_A": "Tono: Reflexivo y detallado.",
+  "preference_tone_B": "Tono: Energético y breve.",
+  "preference_format_A": "Formato: Usa viñetas y listas de verificación de forma predeterminada.",
+  "preference_format_B": "Formato: Usa párrafos cortos con razonamiento claro de forma predeterminada.",
+  "preference_evidence_A": "Evidencia: Cita las fuentes solo cuando yo lo pida.",
+  "preference_evidence_B": "Evidencia: Si navegas por la web, cita tus fuentes de forma predeterminada.",
+  "general_rules": "Ve al grano rápidamente.\n- Expande los acrónimos la primera vez que los uses.\n- Evita cumplidos excesivos o emojis."
 }
