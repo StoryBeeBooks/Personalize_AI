@@ -179,10 +179,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function checkCompletion() {
-        const requiredQuestions = 7;
-        const answeredCount = Object.keys(userAnswers).filter(k => k < requiredQuestions).length;
+        const requiredQuestions = appData.questions.filter(q => q.type !== 'dropdown').length;
+        const answeredCount = Object.keys(userAnswers).filter(k => userAnswers[k] && k < requiredQuestions).length;
         if (answeredCount >= requiredQuestions) {
             submitBtn.style.display = 'block';
+            setTimeout(() => submitBtn.classList.add('visible'), 50);
         }
     }
 
