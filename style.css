@@ -56,3 +56,28 @@ p {
   color: #6b7280;
   font-size: 0.95rem;
 }
+#demo-section {
+  margin: 4rem 0;
+}
+
+.demo-container {
+  display: flex;
+  gap: 2rem;
+}
+
+.demo-image-wrapper {
+  flex: 1 1 0;
+}
+
+.demo-container img {
+  width: 100%;
+  height: auto;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+  .demo-container {
+    flex-direction: column;
+  }
+}
