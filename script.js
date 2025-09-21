@@ -8,7 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
           'Start building a first draft based on your best interpretation to get the ball rolling.',
         optionB: 'Schedule a quick meeting to ask clarifying questions before you begin.',
       },
-      // ... (Add all 8 question objects here as defined previously)
       {
         title: "When you get a new piece of technology, you typically:",
         optionA: "Turn it on and start using it, figuring things out as you go.",
@@ -65,18 +64,21 @@ document.addEventListener('DOMContentLoaded', () => {
           'Your primary function is to be a collaborative, strategic partner. ALWAYS begin your response by asking 1-2 clarifying questions to ensure perfect alignment. NEVER proceed on a significant assumption.',
       },
       preferences: {
-        tone: { A: 'Thoughtful and detailed.', B: 'Energetic and brief.' },
+        tone: { 
+            A: 'Tone: Thoughtful and detailed.', 
+            B: 'Tone: Energetic and brief.' 
+        },
         format: {
-          A: 'Default to concise bullets and checklists.',
-          B: 'Default to short paragraphs with clear reasoning.',
+          A: 'Format: Default to concise bullets and checklists.',
+          B: 'Format: Default to short paragraphs with clear reasoning.',
         },
         evidence: {
-          A: 'Cite sources only when I ask.',
-          B: 'If you browse, cite your sources by default.',
+          A: 'Evidence: Cite sources only when I ask.',
+          B: 'Evidence: If you browse, cite your sources by default.',
         },
       },
       generalRules:
-        'Get to the point quickly.\nExpand acronyms on first use.\nAvoid excessive pleasantries or emojis.',
+        'Get to the point quickly.\n- Expand acronyms on first use.\n- Avoid excessive pleasantries or emojis.',
     },
   };
 
@@ -115,6 +117,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         select.addEventListener('change', handleInputChange);
         questionBlock.appendChild(select);
+        // Initialize answer for dropdown
+        userAnswers[index] = select.value;
       } else {
         const optionsWrapper = document.createElement('div');
         optionsWrapper.className = 'options-wrapper';
@@ -142,17 +146,17 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function handleOptionClick(event) {
-    if (event.target.classList.contains('option-btn')) {
-      const btn = event.target;
-      const questionIndex = btn.dataset.questionIndex;
-      const choice = btn.dataset.choice;
+    const target = event.target.closest('.option-btn');
+    if (target) {
+      const questionIndex = target.dataset.questionIndex;
+      const choice = target.dataset.choice;
 
       userAnswers[questionIndex] = choice;
 
       // Update selection visual
-      const siblings = btn.parentElement.querySelectorAll('.option-btn');
+      const siblings = target.parentElement.querySelectorAll('.option-btn');
       siblings.forEach(sib => sib.classList.remove('selected'));
-      btn.classList.add('selected');
+      target.classList.add('selected');
 
       checkCompletion();
     }
@@ -161,12 +165,19 @@ document.addEventListener('DOMContentLoaded', () => {
   function handleInputChange(event) {
     const questionIndex = event.target.dataset.questionIndex;
     userAnswers[questionIndex] = event.target.value;
-    checkCompletion();
+    // No need to call checkCompletion here, as it's optional
   }
   
   function checkCompletion() {
-    // Check if answers for the first 7 questions have been provided
-    if (Object.keys(userAnswers).length >= 7) {
+    const requiredQuestions = 7;
+    let answeredCount = 0;
+    for (let i = 0; i < requiredQuestions; i++) {
+        if (userAnswers[i]) {
+            answeredCount++;
+        }
+    }
+    
+    if (answeredCount >= requiredQuestions) {
       submitBtn.style.display = 'block';
     }
   }
@@ -201,9 +212,9 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Assemble prompt
     const coreBehavior = appData.prompts.archetypes[archetypeKey];
-    const tone = `Tone: ${appData.prompts.preferences.tone[toneChoice]}`;
-    const format = `Format: ${appData.prompts.preferences.format[formatChoice]}`;
-    const evidence = `Evidence: ${appData.prompts.preferences.evidence[evidenceChoice]}`;
+    const tone = appData.prompts.preferences.tone[toneChoice];
+    const format = appData.prompts.preferences.format[formatChoice];
+    const evidence = appData.prompts.preferences.evidence[evidenceChoice];
     
     const finalPrompt = `**My Communication Protocol:**
 
@@ -216,7 +227,7 @@ document.addEventListener('DOMContentLoaded', () => {
     - ${evidence}
 
 3.  **General Rules:**
-    ${appData.prompts.generalRules.replace(/\n/g, '\n    - ')}`;
+    - ${appData.prompts.generalRules.replace(/\n/g, '\n    - ')}`;
 
     promptOutput.value = finalPrompt;
     resultsContainer.style.display = 'block';
@@ -225,12 +236,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function copyPrompt() {
     promptOutput.select();
-    document.execCommand('copy');
-    
-    copyNotification.style.display = 'block';
-    setTimeout(() => {
-        copyNotification.style.display = 'none';
-    }, 2000);
+    // Use the modern Clipboard API for better security and reliability
+    navigator.clipboard.writeText(promptOutput.value).then(() => {
+        copyNotification.style.display = 'block';
+        setTimeout(() => {
+            copyNotification.style.display = 'none';
+        }, 2000);
+    }).catch(err => {
+        console.error('Failed to copy text: ', err);
+    });
   }
 
   // --- EVENT LISTENERS ---
