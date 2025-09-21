@@ -14,14 +14,10 @@
   --selected-bg: #e7f5ff;
 }
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
+*, *::before, *::after { box-sizing: border-box; }
 
 body {
-  font-family: -apple-system, BlinkMacSystem-Font, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   line-height: 1.6;
   background-color: var(--background-color);
   color: var(--text-primary);
@@ -31,18 +27,13 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-main {
-  max-width: 780px;
-  margin: 0 auto;
-}
+main { max-width: 780px; margin: 0 auto; }
 
 /* 2. Premium Typography & Section Headers */
-h1, h2, p {
-  margin: 0;
-}
+h1, h2, p { margin: 0; }
 
 h1 {
-  font-size: clamp(2.5rem, 5vw, 3.5rem); /* Responsive font size */
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
   font-weight: 700;
   letter-spacing: -0.02em;
   margin-bottom: 0.5rem;
@@ -53,7 +44,7 @@ h1 {
   font-size: clamp(1rem, 2.5vw, 1.2rem);
   color: var(--text-secondary);
   text-align: center;
-  margin: 0 auto 4rem auto;
+  margin: 0 auto 1.5rem auto;
   max-width: 600px;
 }
 
@@ -65,6 +56,26 @@ h2 {
   border-bottom: 1px solid #e5e5e5;
 }
 
+.language-selector-wrapper {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+#lang-switcher {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: var(--light-gray-bg);
+  border: 1px solid var(--border-color);
+  padding: 0.5rem 2rem 0.5rem 1rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%236E6E73%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.4-12.8z%22%2F%3E%3C%2Fsvg%3E');
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: .5em auto;
+}
+
 .question-title {
   font-size: 1.2rem;
   font-weight: 600;
@@ -73,13 +84,11 @@ h2 {
 }
 
 /* 3. Cinematic Video Demo */
-#demo-section {
-  margin: 4rem 0;
-}
+#demo-section, #questionnaire-container { margin: 4rem 0; }
 
 .video-container {
   position: relative;
-  padding-bottom: 56.25%; /* 16:9 */
+  padding-bottom: 56.25%;
   height: 0;
   overflow: hidden;
   border-radius: 18px;
@@ -87,30 +96,12 @@ h2 {
   background-color: #000;
 }
 
-.video-container iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
+.video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 
 /* 4. Interactive & Engaging Questionnaire */
-#questionnaire-container {
-  margin: 4rem 0;
-}
+.question-block { margin-bottom: 2.5rem; }
 
-.question-block {
-  margin-bottom: 2.5rem;
-  opacity: 0;
-  animation: fadeIn 0.6s ease forwards;
-}
-
-.options-wrapper {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-}
+.options-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
 
 .option-btn {
   padding: 1.25rem 1.5rem;
@@ -119,8 +110,7 @@ h2 {
   border: 1px solid var(--light-gray-bg);
   border-radius: 12px;
   cursor: pointer;
-  transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
-              box-shadow 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   text-align: left;
   color: var(--text-primary);
 }
@@ -173,13 +163,8 @@ h2 {
 }
 
 /* 5. The Results Reveal */
-#results-container {
-  margin-top: 4rem;
-}
-
-.prompt-wrapper {
-  position: relative;
-}
+#results-container { margin-top: 4rem; }
+.prompt-wrapper { position: relative; }
 
 #prompt-output {
   width: 100%;
@@ -211,15 +196,8 @@ h2 {
   transition: background-color 0.2s ease;
 }
 
-#copy-btn:hover {
-  background: #fff;
-}
-
-#copy-btn svg {
-  width: 16px;
-  height: 16px;
-  stroke: var(--text-secondary);
-}
+#copy-btn:hover { background: #fff; }
+#copy-btn svg { width: 16px; height: 16px; stroke: var(--text-secondary); }
 
 #copy-notification {
   text-align: center;
@@ -229,46 +207,25 @@ h2 {
   color: #fff;
   border-radius: 8px;
   font-weight: 600;
-  opacity: 0;
-  transform: translateY(10px);
-  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 /* 6. Animations & Responsive */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(15px); }
-  to { opacity: 1; transform: translateY(0); }
+.question-block {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
 }
+
+.question-block.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 
 @media (max-width: 600px) {
   body { padding: 2rem 1rem; }
   main { padding: 1.5rem; }
   h1 { font-size: 2rem; }
   .subheader { font-size: 1rem; }
-  .options-wrapper {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* --- 7. Language Selector --- */
-.top-nav {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  z-index: 100;
-}
-
-.language-selector select {
-  -webkit-appearance: none;
-  appearance: none;
-  background-color: var(--light-gray-bg);
-  border: 1px solid var(--border-color);
-  padding: 0.5rem 2rem 0.5rem 1rem;
-  border-radius: 8px;
-  font-size: 0.9rem;
-  cursor: pointer;
-  background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%236E6E73%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.4-12.8z%22%2F%3E%3C%2Fsvg%3E');
-  background-repeat: no-repeat;
-  background-position: right 0.75rem center;
-  background-size: .5em auto;
+  .options-wrapper { grid-template-columns: 1fr; }
 }

@@ -7,8 +7,13 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="top-nav">
-        <div class="language-selector">
+    <main>
+      <header>
+        <h1 data-i18n="main_title">Personalize Your AI.</h1>
+        <p class="subheader" data-i18n="subheader">
+          Answer 8 simple questions to generate a communication protocol that puts you in control. Decide whether your AI leads with questions or follows your commands.
+        </p>
+        <div class="language-selector-wrapper">
             <select id="lang-switcher">
                 <option value="en">English</option>
                 <option value="es">Español</option>
@@ -16,21 +21,12 @@
                 <option value="zh-TW">繁體中文</option>
             </select>
         </div>
-    </div>
-    <main>
-      <header>
-        <h1 data-i18n="main_title">Personalize Your AI.</h1>
-        <p class="subheader" data-i18n="subheader">
-          Answer 8 simple questions to generate a communication protocol that puts you in control. Decide whether your AI leads with questions or follows your commands.
-        </p>
       </header>
 
       <section id="demo-section">
         <h2 data-i18n="demo_title">See The Difference in Under 10 Seconds</h2>
         <div class="video-container">
           <iframe
-            width="560" 
-            height="315"
             src="https://www.youtube.com/embed/x0d3KJiBQ0k"
             title="YouTube video player"
             frameborder="0"
@@ -43,7 +39,7 @@
       <section id="questionnaire-container">
         <h2 data-i18n="questionnaire_title">Answer the questions to generate your personality-setting prompt-output</h2>
         <div id="question-area">
-            <!-- Questions will be dynamically generated here by JavaScript -->
+            <!-- Questions are dynamically generated here by JavaScript -->
         </div>
         <button id="submit-btn" style="display: none;" data-i18n="submit_btn_text">Generate My Protocol</button>
       </section>
@@ -60,7 +56,6 @@
       </section>
 
     </main>
-    <!-- We will add the i18next library script here -->
     <script src="https://unpkg.com/i18next/i18next.min.js"></script>
     <script src="script.js"></script>
   </body>
