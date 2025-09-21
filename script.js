@@ -83,4 +83,60 @@ const appData = {
   }
 };
 
+const questionnaireContainer = document.getElementById('questionnaire-container');
+const resultsContainer = document.getElementById('results-container');
+const questionTitle = document.getElementById('question-title');
+const optionsContainer = document.getElementById('options-container');
+const nextButton = document.getElementById('next-btn');
+
+let currentQuestionIndex = 0;
+let userAnswers = [];
+
+function displayQuestion() {
+  const currentQuestion = appData.questions[currentQuestionIndex];
+
+  if (!currentQuestion) {
+    return;
+  }
+
+  questionTitle.innerText = currentQuestion.title;
+  optionsContainer.innerHTML = '';
+
+  if (currentQuestion.type === 'dropdown') {
+    const selectElement = document.createElement('select');
+
+    currentQuestion.options.forEach((optionText) => {
+      const optionElement = document.createElement('option');
+      optionElement.value = optionText;
+      optionElement.innerText = optionText;
+      selectElement.appendChild(optionElement);
+    });
+
+    optionsContainer.appendChild(selectElement);
+    return;
+  }
+
+  const optionACard = document.createElement('div');
+  optionACard.classList.add('option-card');
+  optionACard.innerText = currentQuestion.optionA;
+
+  const optionBCard = document.createElement('div');
+  optionBCard.classList.add('option-card');
+  optionBCard.innerText = currentQuestion.optionB;
+
+  const optionCards = [optionACard, optionBCard];
+
+  optionCards.forEach((card) => {
+    card.addEventListener('click', () => {
+      optionCards.forEach((otherCard) => otherCard.classList.remove('selected'));
+      card.classList.add('selected');
+    });
+  });
+
+  optionsContainer.appendChild(optionACard);
+  optionsContainer.appendChild(optionBCard);
+}
+
+displayQuestion();
+
 export default appData;
