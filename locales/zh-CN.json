@@ -1,6 +1,6 @@
 {
   "page_title": "个性化您的AI",
-  "main_title": "个性化您的AI。",
+  "main_title": "个性化您的AI",
   "subheader": "回答8个简单问题，生成一个让您掌控对话的沟通协议。决定您的AI是引导提问还是执行命令。",
   "demo_title": "10秒内见证不同",
   "questionnaire_title": "现在，个性化您自己的AI",
@@ -8,6 +8,7 @@
   "results_title": "您的专属沟通协议",
   "copy_btn_title": "复制到剪贴板",
   "copy_notification_text": "已复制！",
+  "results_instructions": "复制您的协议，并将其作为第一条消息粘贴到任何新的AI聊天中，即可立即个性化您的对话。",
 
   "q1_title": "你接手一个定义模糊的新项目，你的第一反应是：",
   "q1_optA": "根据自己最好的理解，开始构建初稿，让项目先滚动起来。",

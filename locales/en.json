@@ -1,6 +1,6 @@
 {
   "page_title": "Personalize Your AI",
-  "main_title": "Personalize Your AI.",
+  "main_title": "Personalize Your AI",
   "subheader": "Answer 8 simple questions to generate a communication protocol that puts you in control. Decide whether your AI leads with questions or follows your commands.",
   "demo_title": "See The Difference in Under 10 Seconds",
   "questionnaire_title": "Now, Personalize Your Own AI",
@@ -8,6 +8,7 @@
   "results_title": "Your Custom Communication Protocol",
   "copy_btn_title": "Copy to Clipboard",
   "copy_notification_text": "Copied!",
+  "results_instructions": "Copy your protocol and paste it as the first message in any new AI chat to instantly personalize the conversation.",
 
   "q1_title": "You're given a new, vaguely defined project. Your first instinct is to:",
   "q1_optA": "Start building a first draft based on your best interpretation to get the ball rolling.",

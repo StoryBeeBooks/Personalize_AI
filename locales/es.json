@@ -1,6 +1,6 @@
 {
   "page_title": "Personaliza Tu IA",
-  "main_title": "Personaliza Tu IA.",
+  "main_title": "Personaliza Tu IA",
   "subheader": "Responde 8 sencillas preguntas para generar un protocolo de comunicación que te da el control. Decide si tu IA lidera con preguntas o sigue tus órdenes.",
   "demo_title": "Mira La Diferencia en Menos de 10 Segundos",
   "questionnaire_title": "Ahora, Personaliza Tu Propia IA",
@@ -8,6 +8,7 @@
   "results_title": "Tu Protocolo de Comunicación Personalizado",
   "copy_btn_title": "Copiar al portapapeles",
   "copy_notification_text": "¡Copiado!",
+  "results_instructions": "Copia tu protocolo y pégalo como el primer mensaje en cualquier nuevo chat de IA para personalizar instantáneamente la conversación.",
 
   "q1_title": "Te asignan un proyecto nuevo y vagamente definido. Tu primer instinto es:",
   "q1_optA": "Empezar a construir un primer borrador basado en tu mejor interpretación para poner las cosas en marcha.",

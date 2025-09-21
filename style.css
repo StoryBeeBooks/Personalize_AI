@@ -225,6 +225,14 @@ h2 {
   font-weight: 600;
 }
 
+.results-instructions {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  text-align: center;
+  margin: 1.5rem auto 0 auto;
+  max-width: 550px;
+}
+
 /* 6. Animations & Responsive */
 .question-block {
     opacity: 0;
