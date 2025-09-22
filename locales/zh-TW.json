@@ -1,11 +1,11 @@
 {
   "page_title": "個性化您的AI",
   "main_title": "個性化您的AI",
-  "subheader": "回答幾個簡單問題，生成一個讓您掌控對話的溝通協議。決定您的AI是引導提問還是執行命令。",
+  "subheader": "開發合適的提示詞來個性化你的人工智能。將提示詞複製並貼上到你的 AI 對話中。適用於 Google Gemini、ChatGPT、Claude、Grok、DeepSeek 等。",
   "demo_title": "10秒內見證不同",
   "questionnaire_title": "現在，個性化您自己的AI",
   "submit_btn_text": "生成我的協議",
-  "results_title": "您的專屬溝通協議",
+  "results_title": "您的個性化提示詞 - 複製它以在您的 AI 聊天中使用。",
   "copy_btn_title": "複製到剪貼簿",
   "copy_notification_text": "已複製！",
   "results_instructions": "複製您的協議，並將其作為第一條訊息貼到任何新的AI聊天中，即可立即個性化您的對話。",

@@ -1,11 +1,11 @@
 {
   "page_title": "Personaliza Tu IA",
   "main_title": "Personaliza Tu IA",
-  "subheader": "Responde unas sencillas preguntas para generar un protocolo de comunicación que te da el control. Decide si tu IA lidera con preguntas o sigue tus órdenes.",
+  "subheader": "Desarrolla el prompt adecuado para personalizar tu IA. Copia y pega los prompts a continuación en tus chats de IA. Funciona con Google Gemini, ChatGPT, Claude, Grok, DeepSeek y más.",
   "demo_title": "Mira La Diferencia en Menos de 10 Segundos",
   "questionnaire_title": "Ahora, Personaliza Tu Propia IA",
   "submit_btn_text": "Generar Mi Protocolo",
-  "results_title": "Tu Protocolo de Comunicación Personalizado",
+  "results_title": "Tu prompt personalizado - cópialo para usarlo en tus chats de IA.",
   "copy_btn_title": "Copiar al portapapeles",
   "copy_notification_text": "¡Copiado!",
   "results_instructions": "Copia tu protocolo y pégalo como el primer mensaje en cualquier nuevo chat de IA para personalizar instantáneamente la conversación.",
