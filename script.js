@@ -58,11 +58,36 @@ document.addEventListener('DOMContentLoaded', () => {
         return data;
     }
 
+    // Helper function to wrap long labels for Chart.js
+    function wrapLabel(str, maxWidth) {
+        if (window.innerWidth >= 600) return str; // Don't wrap on larger screens
+        const words = str.split(' ');
+        let lines = [];
+        let currentLine = words[0];
+
+        for (let i = 1; i < words.length; i++) {
+            if ((currentLine + ' ' + words[i]).length > maxWidth) {
+                lines.push(currentLine);
+                currentLine = words[i];
+            } else {
+                currentLine += ' ' + words[i];
+            }
+        }
+        lines.push(currentLine);
+        return lines; // Return array of strings for multi-line label
+    }
+
     function renderChart(stats) {
         statsChartContainer.innerHTML = '<canvas id="stats-chart"></canvas>';
         const ctx = document.getElementById('stats-chart').getContext('2d');
         const archetypes = ['archetype_strongExecutor', 'archetype_leansExecutor', 'archetype_balanced', 'archetype_leansCollaborator', 'archetype_strongCollaborator'];
-        const labels = archetypes.map(key => i18next.t(key.replace('archetype_', 'archetype_label_')));
+        
+        // Use the wrapLabel function for dynamic labels
+        const labels = archetypes.map(key => {
+            const labelText = i18next.t(key.replace('archetype_', 'archetype_label_'));
+            return wrapLabel(labelText, 15); // 15 is a good character limit for mobile
+        });
+
         const dataPoints = archetypes.map(key => stats[key] || 0);
         
         const barColors = [
@@ -96,8 +121,14 @@ document.addEventListener('DOMContentLoaded', () => {
             options: {
                 indexAxis: 'y',
                 responsive: true,
+                maintainAspectRatio: false, // Important for responsive height
                 barPercentage: 0.5, // Makes bars slimmer
                 scales: {
+                    y: {
+                        ticks: {
+                            autoSkip: false // Ensures all labels are shown
+                        }
+                    },
                     x: { beginAtZero: true, ticks: { callback: value => value + '%' } }
                 },
                 plugins: {

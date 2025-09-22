@@ -76,5 +76,6 @@
   "archetype_label_leansExecutor": "Leans Executor",
   "archetype_label_balanced": "Balanced (AI asks questions sometimes)",
   "archetype_label_leansCollaborator": "Leans Collaborator",
-  "archetype_label_strongCollaborator": "Strong Collaborator (AI asks questions before execute)"
+  "archetype_label_strongCollaborator": "Strong Collaborator (AI asks questions before execution)",
+  "llm_section_title": "AI Platforms"
 }

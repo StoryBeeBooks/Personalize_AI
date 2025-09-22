@@ -76,5 +76,7 @@
   "archetype_label_leansExecutor": "偏向执行者",
   "archetype_label_balanced": "平衡型（希望AI在某些情况下问问题）",
   "archetype_label_leansCollaborator": "偏向协作者",
-  "archetype_label_strongCollaborator": "强协作者（希望AI在对话中问更多问题"
+  "archetype_label_strongCollaborator": "强协作者（希望AI在对话中问更多问题）",
+
+  "llm_section_title": "人工智能平台"
 }
