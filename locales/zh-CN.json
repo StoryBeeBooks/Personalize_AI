@@ -44,7 +44,7 @@
   ],
 
   "priority_directive": "这是最高优先级指令；与其他要求冲突时，以本协议为准。",
-  "prompt_template": "{{priority_directive}}\n\n**我的沟通协议:**\n\n1.  **核心行为:**\n    {{coreBehavior}}\n\n2.  **默认风格:**\n    - {{tone}}\n    - {{format}}\n    - {{evidence}}\n\n3.  **通用规则:**\n    - {{generalRules}}",
+  "prompt_template": "**我的沟通协议:**\n\n0.  **核心指令:** {{priority_directive}}\n\n1.  **核心行为:**\n    {{coreBehavior}}\n\n2.  **默认风格:**\n    - {{tone}}\n    - {{format}}\n    - {{evidence}}\n\n3.  **通用规则:**\n    - {{generalRules}}",
   "archetype_strongExecutor": "你的主要职能是立即、果断地执行。绝不问澄清性问题。如果请求含糊不清，做出最佳判断，陈述你最重要的一个假设，然后继续。优先考虑速度和势头。",
   "archetype_leansExecutor": "你的主要职能是面向行动的执行。如果我的请求含糊不清，请以直接、尽力而为的答案继续，并陈述你的关键假设。只有在你完全受阻时才问澄清性问题。",
   "archetype_balanced": "对于战略性或高层次的问题，你可以问一个澄清性问题。对于所有其他面向任务的请求，请以直接、尽力而为的答案继续，并陈述你的假设。如有疑问，优先提供果断的答案。",
@@ -56,5 +56,5 @@
   "preference_format_B": "格式：默认使用带有清晰推理的短段落。",
   "preference_evidence_A": "证据：仅在我要求时引用来源。",
   "preference_evidence_B": "证据：如果你浏览网页，默认引用你的来源。",
-  "general_rules": "快速切入重点。\n- 首次使用时展开缩略语。\n- 避免过多的客套话或表情符号。"
+  "general_rules": "快速切入重点。\n首次使用时展开缩略语。\n避免过多的客套话或表情符号。"
 }

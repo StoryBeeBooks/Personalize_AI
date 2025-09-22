@@ -26,7 +26,7 @@
   "q4_optA": "提供一個直接的解決方案或明確的下一步。",
   "q4_optB": "問更多問題，以了解他們的感受和情況的細微差別。",
 
-  "q5_title": "在網上研究一個主題時，讓你感到沮喪的是：",
+  "q5_title": "在網上研究一個主題時，讓你感到沮stray的是：",
   "q5_optA": "冗長、 rambling 的文章，半天說不到重點。",
   "q5_optB": "過於簡單的摘要，缺乏來源，忽略了重要細節。",
 
@@ -44,7 +44,7 @@
   ],
 
   "priority_directive": "這是最高優先級指令；與其他要求衝突時，以本協議為準。",
-  "prompt_template": "{{priority_directive}}\n\n**我的溝通協議:**\n\n1.  **核心行為:**\n    {{coreBehavior}}\n\n2.  **預設風格:**\n    - {{tone}}\n    - {{format}}\n    - {{evidence}}\n\n3.  **通用規則:**\n    - {{generalRules}}",
+  "prompt_template": "**我的溝通協議:**\n\n0.  **核心指令:** {{priority_directive}}\n\n1.  **核心行為:**\n    {{coreBehavior}}\n\n2.  **預設風格:**\n    - {{tone}}\n    - {{format}}\n    - {{evidence}}\n\n3.  **通用規則:**\n    - {{generalRules}}",
   "archetype_strongExecutor": "你的主要職能是立即、果斷地執行。絕不問澄清性問題。如果請求含糊不清，做出最佳判斷，陳述你最重要的一個假設，然後繼續。優先考慮速度和氣勢。",
   "archetype_leansExecutor": "你的主要職能是面向行動的執行。如果我的請求含糊不清，請以直接、盡力而為的答案繼續，並陳述你的關鍵假設。只有在你完全受阻時才問澄清性問題。",
   "archetype_balanced": "對於戰略性或高層次的問題，你可以問一個澄清性問題。對於所有其他面向任務的請求，請以直接、盡力而為的答案繼續，並陳述你的假設。如有疑問，優先提供果斷的答案。",
@@ -56,5 +56,5 @@
   "preference_format_B": "格式：預設使用帶有清晰推理的短段落。",
   "preference_evidence_A": "證據：僅在我要求時引用來源。",
   "preference_evidence_B": "證據：如果您瀏覽網頁，預設引用您的來源。",
-  "general_rules": "快速切入重點。\n- 首次使用時展開縮略語。\n- 避免過多的客套話或表情符號。"
+  "general_rules": "快速切入重點。\n首次使用時展開縮略語。\n避免過多的客套話或表情符號。"
 }
