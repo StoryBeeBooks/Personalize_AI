@@ -66,5 +66,15 @@
   "style_evidence_A": "Cite sources only when I ask.",
   "style_evidence_B": "If you browse, cite your sources by default.",
   
-  "general_rules": "Get to the point quickly.\nExpand acronyms on first use.\nAvoid excessive pleasantries or emojis."
+  "general_rules": "Get to the point quickly.\nExpand acronyms on first use.\nAvoid excessive pleasantries or emojis.",
+
+  "stats_title": "How Our Users Personalize AI",
+  "stats_subheader_prefix": "Based on",
+  "stats_subheader_suffix": "protocols generated",
+  "stats_chart_label": "% of Users",
+  "archetype_label_strongExecutor": "Strong Executor",
+  "archetype_label_leansExecutor": "Leans Executor",
+  "archetype_label_balanced": "Balanced",
+  "archetype_label_leansCollaborator": "Leans Collaborator",
+  "archetype_label_strongCollaborator": "Strong Collaborator"
 }

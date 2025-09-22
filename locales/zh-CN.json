@@ -66,5 +66,15 @@
   "style_evidence_A": "仅在我要求时引用来源。",
   "style_evidence_B": "如果你浏览网页，默认引用你的来源。",
   
-  "general_rules": "快速切入重点。\n首次使用时展开缩略语。\n避免过多的客套话或表情符号。"
+  "general_rules": "快速切入重点。\n首次使用时展开缩略语。\n避免过多的客套话或表情符号。",
+
+  "stats_title": "我们的用户如何个性化AI",
+  "stats_subheader_prefix": "基于",
+  "stats_subheader_suffix": "已生成的协议",
+  "stats_chart_label": "用户百分比",
+  "archetype_label_strongExecutor": "强执行者",
+  "archetype_label_leansExecutor": "偏向执行者",
+  "archetype_label_balanced": "平衡型",
+  "archetype_label_leansCollaborator": "偏向协作者",
+  "archetype_label_strongCollaborator": "强协作者"
 }

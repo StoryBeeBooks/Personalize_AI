@@ -49,10 +49,21 @@ layout: null
           ></iframe>
         </div>
       </section>
+      
+      <section id="stats-section" style="display: none;">
+        <h2 data-i18n="stats_title">How Our Users Personalize AI</h2>
+        <p class="stats-subheader"></p>
+        <div id="stats-chart-container">
+          <!-- Chart will be rendered here by JavaScript -->
+        </div>
+      </section>
 
       <section id="questionnaire-container">
-        <div id="question-area"></div>
-        <button id="submit-btn" class="visible" style="display: none;" data-i18n="submit_btn_text">Generate My Protocol</button>
+        <h2 data-i18n="questionnaire_title">Answer the questions to generate your personality-setting prompt-output</h2>
+        <div id="question-area">
+            <!-- Questions are dynamically generated here by JavaScript -->
+        </div>
+        <button id="submit-btn" style="display: none;" data-i18n="submit_btn_text">Generate My Protocol</button>
         <p id="restart-message" style="display: none;" data-i18n="restart_message">Refresh the page to restart.</p>
       </section>
 
@@ -64,13 +75,14 @@ layout: null
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
           </button>
         </div>
-        <p class="results-instructions" data-i18n="results_instructions">Copy your protocol and paste it as the first message in any new AI chat to instantly personalize the conversation.</p>
         <div id="copy-notification" style="display: none;" data-i18n="copy_notification_text">Copied!</div>
+        <p class="results-instructions" data-i18n="results_instructions"></p>
       </section>
 
     </main>
     <script src="https://unpkg.com/i18next/i18next.min.js"></script>
     <script src="https://unpkg.com/i18next-http-backend/i18nextHttpBackend.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="script.js"></script>
   </body>
 </html>

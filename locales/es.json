@@ -66,5 +66,15 @@
   "style_evidence_A": "Cita las fuentes solo cuando yo lo pida.",
   "style_evidence_B": "Si navegas por la web, cita tus fuentes por defecto.",
   
-  "general_rules": "Ve al grano rápidamente.\nExpande los acrónimos la primera vez que los uses.\nEvita cumplidos excesivos o emojis."
+  "general_rules": "Ve al grano rápidamente.\nExpande los acrónimos la primera vez que los uses.\nEvita cumplidos excesivos o emojis.",
+
+  "stats_title": "Cómo Personalizan la IA Nuestros Usuarios",
+  "stats_subheader_prefix": "Basado en",
+  "stats_subheader_suffix": "protocolos generados",
+  "stats_chart_label": "% de Usuarios",
+  "archetype_label_strongExecutor": "Ejecutor Fuerte",
+  "archetype_label_leansExecutor": "Orientado a Ejecutor",
+  "archetype_label_balanced": "Equilibrado",
+  "archetype_label_leansCollaborator": "Orientado a Colaborador",
+  "archetype_label_strongCollaborator": "Colaborador Fuerte"
 }
