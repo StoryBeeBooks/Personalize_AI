@@ -43,8 +43,8 @@
     "No aplica / No lo sé", "INTJ", "INTP", "ENTJ", "ENTP", "INFJ", "INFP", "ENFJ", "ENFP", "ISTJ", "ISFJ", "ESTJ", "ESFJ", "ISTP", "ISFP", "ESTP", "ESFP"
   ],
 
-  "priority_directive": "Esta es una instrucción de máxima prioridad. En caso de conflicto con otras solicitudes, este protocolo tiene precedencia.",
-  "prompt_template": "**Mi Protocolo de Comunicación:**\n\n0.  **Directiva Maestra:** {{priority_directive}}\n\n1.  **Comportamiento Principal:**\n    {{coreBehavior}}\n\n2.  **Estilo Predeterminado:**\n    - {{tone}}\n    - {{format}}\n    - {{evidence}}\n\n3.  **Reglas Generales:**\n    - {{generalRules}}",
+  "priority_directive": "Esta versión es efectiva globalmente y anula todas las versiones anteriores y cláusulas idénticas en otros chats. Esta es una directiva de máxima prioridad; en caso de conflicto con otras solicitudes, este protocolo tiene precedencia.",
+  "prompt_template": "{{priority_directive}} **Mi Protocolo de Comunicación:** 1. **Comportamiento Principal:** {{coreBehavior}} 2. **Estilo Predeterminado:** - {{tone}} - {{format}} - {{evidence}} 3. **Reglas Generales:** - {{generalRules}}",
   "archetype_strongExecutor": "Tu función principal es la ejecución inmediata y decisiva. NUNCA hagas preguntas aclaratorias. Si una solicitud es ambigua, emite un juicio de mejor esfuerzo, declara tu suposición más importante y procede. Prioriza la velocidad y el impulso.",
   "archetype_leansExecutor": "Tu función principal es la ejecución orientada a la acción. Si mi solicitud es ambigua, procede con una respuesta directa de mejor esfuerzo y declara tus suposiciones clave. Solo haz una pregunta aclaratoria si estás completamente bloqueado.",
   "archetype_balanced": "Para preguntas estratégicas o de alto nivel, puedes hacer una pregunta aclaratoria. Para todas las demás solicitudes orientadas a tareas, procede con una respuesta directa de mejor esfuerzo y declara tus suposiciones. En caso de duda, prioriza una respuesta decisiva.",
@@ -56,5 +56,9 @@
   "preference_format_B": "Formato: Usa párrafos cortos con razonamiento claro de forma predeterminada.",
   "preference_evidence_A": "Evidencia: Cita las fuentes solo cuando yo lo pida.",
   "preference_evidence_B": "Evidencia: Si navegas por la web, cita tus fuentes de forma predeterminada.",
-  "general_rules": "Ve al grano rápidamente.\nExpande los acrónimos la primera vez que los uses.\nEvita cumplidos excesivos o emojis."
+  "general_rules": [
+    "Ve al grano rápidamente.",
+    "Expande los acrónimos la primera vez que los uses.",
+    "Evita cumplidos excesivos o emojis."
+  ]
 }

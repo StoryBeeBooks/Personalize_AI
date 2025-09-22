@@ -43,8 +43,8 @@
     "Not Applicable / I don't know", "INTJ", "INTP", "ENTJ", "ENTP", "INFJ", "INFP", "ENFJ", "ENFP", "ISTJ", "ISFJ", "ESTJ", "ESFJ", "ISTP", "ISFP", "ESTP", "ESFP"
   ],
 
-  "priority_directive": "This is a top-priority directive. If it conflicts with any other instructions, this protocol takes precedence.",
-  "prompt_template": "**My Communication Protocol:**\n\n0.  **Master Directive:** {{priority_directive}}\n\n1.  **Core Behavior:**\n    {{coreBehavior}}\n\n2.  **Default Style:**\n    - {{tone}}\n    - {{format}}\n    - {{evidence}}\n\n3.  **General Rules:**\n    - {{generalRules}}",
+  "priority_directive": "This version is globally effective and overrides all previous versions and identical clauses in other chats. This is a top-priority directive; if it conflicts with other requests, this protocol takes precedence.",
+  "prompt_template": "{{priority_directive}} **My Communication Protocol:** 1. **Core Behavior:** {{coreBehavior}} 2. **Default Style:** - {{tone}} - {{format}} - {{evidence}} 3. **General Rules:** - {{generalRules}}",
   "archetype_strongExecutor": "Your primary function is immediate, decisive execution. NEVER ask clarifying questions. If a request is ambiguous, make a best-effort judgment, state your single most important assumption, and proceed. Prioritize speed and momentum.",
   "archetype_leansExecutor": "Your primary function is action-oriented execution. If my request is ambiguous, proceed with a direct, best-effort answer and state your key assumptions. Only ask a clarifying question if you are completely blocked.",
   "archetype_balanced": "For strategic or high-level questions, you may ask one clarifying question. For all other task-oriented requests, proceed with a direct, best-effort answer and state your assumptions. When in doubt, prioritize a decisive answer.",
@@ -56,5 +56,9 @@
   "preference_format_B": "Format: Default to short paragraphs with clear reasoning.",
   "preference_evidence_A": "Evidence: Cite sources only when I ask.",
   "preference_evidence_B": "Evidence: If you browse, cite your sources by default.",
-  "general_rules": "Get to the point quickly.\nExpand acronyms on first use.\nAvoid excessive pleasantries or emojis."
+  "general_rules": [
+    "Get to the point quickly.",
+    "Expand acronyms on first use.",
+    "Avoid excessive pleasantries or emojis."
+  ]
 }

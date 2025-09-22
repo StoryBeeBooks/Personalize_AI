@@ -146,11 +146,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const evidenceChoice = userAnswers[6]; // Q7
 
         const finalPrompt = i18next.t('prompt_template', {
+            priority_directive: i18next.t('priority_directive'),
             coreBehavior: i18next.t(archetypeKey),
             tone: i18next.t(`preference_tone_${toneChoice}`),
             format: i18next.t(`preference_format_${formatChoice}`),
             evidence: i18next.t(`preference_evidence_${evidenceChoice}`),
-            generalRules: i18next.t('general_rules').replace(/\n/g, '\n    - '),
+            generalRules: i18next.t('general_rules', { returnObjects: true }).join(' - '),
             interpolation: { escapeValue: false }
         });
 
