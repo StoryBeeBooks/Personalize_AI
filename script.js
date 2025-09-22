@@ -72,16 +72,22 @@ document.addEventListener('DOMContentLoaded', () => {
                 datasets: [{
                     label: i18next.t('stats_chart_label'),
                     data: dataPoints,
-                    backgroundColor: 'rgba(0, 113, 227, 0.6)',
-                    borderColor: 'rgba(0, 113, 227, 1)',
+                    backgroundColor: 'rgba(48, 161, 78, 0.6)', // Changed to accent green
+                    borderColor: 'rgba(48, 161, 78, 1)', // Changed to accent green
                     borderWidth: 1
                 }]
             },
             options: {
                 indexAxis: 'y',
                 responsive: true,
+                barPercentage: 0.6, // Makes bars slimmer
                 scales: {
-                    x: { beginAtZero: true, ticks: { callback: value => value + '%' } }
+                    x: {
+                        beginAtZero: true,
+                        ticks: {
+                            callback: value => value + '%'
+                        }
+                    }
                 },
                 plugins: {
                     legend: { display: false },
