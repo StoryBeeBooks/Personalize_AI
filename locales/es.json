@@ -43,7 +43,8 @@
     "No aplica / No lo sé", "INTJ", "INTP", "ENTJ", "ENTP", "INFJ", "INFP", "ENFJ", "ENFP", "ISTJ", "ISFJ", "ESTJ", "ESFJ", "ISTP", "ISFP", "ESTP", "ESFP"
   ],
 
-  "prompt_template": "**Mi Protocolo de Comunicación:**\n\n1.  **Comportamiento Principal:**\n    {{coreBehavior}}\n\n2.  **Estilo Predeterminado:**\n    - {{tone}}\n    - {{format}}\n    - {{evidence}}\n\n3.  **Reglas Generales:**\n    - {{generalRules}}",
+  "priority_directive": "Esta es una instrucción de máxima prioridad. En caso de conflicto con otras solicitudes, este protocolo tiene precedencia.",
+  "prompt_template": "{{priority_directive}}\n\n**Mi Protocolo de Comunicación:**\n\n1.  **Comportamiento Principal:**\n    {{coreBehavior}}\n\n2.  **Estilo Predeterminado:**\n    - {{tone}}\n    - {{format}}\n    - {{evidence}}\n\n3.  **Reglas Generales:**\n    - {{generalRules}}",
   "archetype_strongExecutor": "Tu función principal es la ejecución inmediata y decisiva. NUNCA hagas preguntas aclaratorias. Si una solicitud es ambigua, emite un juicio de mejor esfuerzo, declara tu suposición más importante y procede. Prioriza la velocidad y el impulso.",
   "archetype_leansExecutor": "Tu función principal es la ejecución orientada a la acción. Si mi solicitud es ambigua, procede con una respuesta directa de mejor esfuerzo y declara tus suposiciones clave. Solo haz una pregunta aclaratoria si estás completamente bloqueado.",
   "archetype_balanced": "Para preguntas estratégicas o de alto nivel, puedes hacer una pregunta aclaratoria. Para todas las demás solicitudes orientadas a tareas, procede con una respuesta directa de mejor esfuerzo y declara tus suposiciones. En caso de duda, prioriza una respuesta decisiva.",
