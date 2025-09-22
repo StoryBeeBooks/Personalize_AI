@@ -61,7 +61,7 @@ h2 { font-size: clamp(1.75rem, 5vw, 2rem); font-weight: 600; margin-bottom: 2rem
 
 #stats-chart-container {
   position: relative;
-  height: 380px; /* Increased height to prevent label overlap */
+  height: 547px; /* Increased height by another 20% */
 }
 
 /* 5. Questionnaire */
