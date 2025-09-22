@@ -64,6 +64,22 @@ document.addEventListener('DOMContentLoaded', () => {
         const archetypes = ['archetype_strongExecutor', 'archetype_leansExecutor', 'archetype_balanced', 'archetype_leansCollaborator', 'archetype_strongCollaborator'];
         const labels = archetypes.map(key => i18next.t(key.replace('archetype_', 'archetype_label_')));
         const dataPoints = archetypes.map(key => stats[key] || 0);
+        
+        const barColors = [
+            'rgba(255, 45, 85, 0.6)',  // Pink/Red
+            'rgba(255, 149, 0, 0.6)', // Orange
+            'rgba(88, 86, 214, 0.6)',  // Indigo
+            'rgba(48, 161, 78, 0.6)',  // Green
+            'rgba(0, 113, 227, 0.6)',  // Blue
+        ];
+        const borderColors = [
+            'rgba(255, 45, 85, 1)',
+            'rgba(255, 149, 0, 1)',
+            'rgba(88, 86, 214, 1)',
+            'rgba(48, 161, 78, 1)',
+            'rgba(0, 113, 227, 1)',
+        ];
+
 
         new Chart(ctx, {
             type: 'bar',
@@ -72,22 +88,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 datasets: [{
                     label: i18next.t('stats_chart_label'),
                     data: dataPoints,
-                    backgroundColor: 'rgba(48, 161, 78, 0.6)', // Changed to accent green
-                    borderColor: 'rgba(48, 161, 78, 1)', // Changed to accent green
+                    backgroundColor: barColors,
+                    borderColor: borderColors,
                     borderWidth: 1
                 }]
             },
             options: {
                 indexAxis: 'y',
                 responsive: true,
-                barPercentage: 0.6, // Makes bars slimmer
+                barPercentage: 0.5, // Makes bars slimmer
                 scales: {
-                    x: {
-                        beginAtZero: true,
-                        ticks: {
-                            callback: value => value + '%'
-                        }
-                    }
+                    x: { beginAtZero: true, ticks: { callback: value => value + '%' } }
                 },
                 plugins: {
                     legend: { display: false },
@@ -157,6 +168,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 optionsWrapper.addEventListener('click', handleOptionClick);
             }
             questionArea.appendChild(questionBlock);
+            // This timeout adds the 'visible' class, triggering the CSS animation
+            setTimeout(() => {
+                questionBlock.classList.add('visible');
+            }, index * 50);
         });
     }
 
