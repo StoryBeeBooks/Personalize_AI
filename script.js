@@ -2,10 +2,20 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- DATA ---
     const appData = {
         questions: [
-            { titleKey: 'q1_title', optionAKey: 'q1_optA', optionBKey: 'q1_optB' }, { titleKey: 'q2_title', optionAKey: 'q2_optA', optionBKey: 'q2_optB' },
-            { titleKey: 'q3_title', optionAKey: 'q3_optA', optionBKey: 'q3_optB' }, { titleKey: 'q4_title', optionAKey: 'q4_optA', optionBKey: 'q4_optB' },
-            { titleKey: 'q5_title', optionAKey: 'q5_optA', optionBKey: 'q5_optB' }, { titleKey: 'q6_title', optionAKey: 'q6_optA', optionBKey: 'q6_optB' },
-            { titleKey: 'q7_title', optionAKey: 'q7_optA', optionBKey: 'q7_optB' }, { titleKey: 'q8_title', type: 'dropdown', optionsKey: 'q8_options' },
+            // Executor vs. Collaborator
+            { titleKey: 'q1_title', optionAKey: 'q1_optA', optionBKey: 'q1_optB' }, // Q1
+            { titleKey: 'q2_title', optionAKey: 'q2_optA', optionBKey: 'q2_optB' }, // Q2
+            { titleKey: 'q3_title', optionAKey: 'q3_optA', optionBKey: 'q3_optB' }, // Q3 (old style)
+            { titleKey: 'q4_title', optionAKey: 'q4_optA', optionBKey: 'q4_optB' }, // Q4
+            { titleKey: 'q5_title', optionAKey: 'q5_optA', optionBKey: 'q5_optB' }, // Q5 (old style)
+            { titleKey: 'q6_title', optionAKey: 'q6_optA', optionBKey: 'q6_optB' }, // Q6
+            { titleKey: 'q7_title', optionAKey: 'q7_optA', optionBKey: 'q7_optB' }, // Q7 (old style)
+            // New V2 Style Questions
+            { titleKey: 'q8_title', optionAKey: 'q8_optA', optionBKey: 'q8_optB' }, // Q8 (Formality)
+            { titleKey: 'q9_title', optionAKey: 'q9_optA', optionBKey: 'q9_optB' }, // Q9 (Verbosity)
+            { titleKey: 'q10_title', optionAKey: 'q10_optA', optionBKey: 'q10_optB' }, // Q10 (Creativity)
+            // Optional
+            { titleKey: 'q11_title', type: 'dropdown', optionsKey: 'q11_options' }, // Q11 (MBTI)
         ],
     };
 
@@ -111,7 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function checkCompletion() {
-        const requiredQuestionsCount = appData.questions.length - 1; // All but the optional Q8
+        const requiredQuestionsCount = appData.questions.length - 1; // All but the optional Q11
         const answeredCount = Object.keys(userAnswers).filter(k => userAnswers[k] && k < requiredQuestionsCount).length;
         
         if (answeredCount >= requiredQuestionsCount) {
@@ -121,6 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function generatePrompt() {
+        // --- Core Behavior Scoring (No change) ---
         let score = 0;
         const executorQuestions = [0, 1, 3, 5]; // Q1, Q2, Q4, Q6
         executorQuestions.forEach(i => {
@@ -128,8 +139,8 @@ document.addEventListener('DOMContentLoaded', () => {
             if (userAnswers[i] === 'B') score -= 2;
         });
 
-        const mbti = userAnswers[7];
-        if (mbti && !i18next.t('q8_options.0').includes(mbti)) { // Check it's not the "Not Applicable" option
+        const mbti = userAnswers[10]; // MBTI is now Q11 (index 10)
+        if (mbti && !i18next.t('q11_options.0').includes(mbti)) {
             if (mbti.includes('J')) score += 1;
             if (mbti.includes('P')) score -= 1;
         }
@@ -141,17 +152,23 @@ document.addEventListener('DOMContentLoaded', () => {
         else if (score >= -3) archetypeKey = 'archetype_leansCollaborator';
         else archetypeKey = 'archetype_strongCollaborator';
 
-        const toneChoice = userAnswers[2]; // Q3
-        const formatChoice = userAnswers[4]; // Q5
-        const evidenceChoice = userAnswers[6]; // Q7
+        // --- V2 Style Profile Choices ---
+        const formatChoice = userAnswers[4];     // Q5
+        const evidenceChoice = userAnswers[6];   // Q7
+        const formalityChoice = userAnswers[7];  // Q8
+        const verbosityChoice = userAnswers[8];  // Q9
+        const creativityChoice = userAnswers[9]; // Q10
 
+        // --- Assemble V2 Prompt ---
         const finalPrompt = i18next.t('prompt_template', {
             priority_directive: i18next.t('priority_directive'),
             coreBehavior: i18next.t(archetypeKey),
-            tone: i18next.t(`preference_tone_${toneChoice}`),
-            format: i18next.t(`preference_format_${formatChoice}`),
-            evidence: i18next.t(`preference_evidence_${evidenceChoice}`),
-            generalRules: i18next.t('general_rules', { returnObjects: true }).join(' - '),
+            formality: i18next.t(`style_formality_${formalityChoice}`),
+            verbosity: i18next.t(`style_verbosity_${verbosityChoice}`),
+            creativity: i18next.t(`style_creativity_${creativityChoice}`),
+            format: i18next.t(`style_format_${formatChoice}`),
+            evidence: i18next.t(`style_evidence_${evidenceChoice}`),
+            generalRules: i18next.t('general_rules').replace(/\n/g, '\n    - '),
             interpolation: { escapeValue: false }
         });
 

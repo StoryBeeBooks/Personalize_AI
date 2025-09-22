@@ -1,7 +1,7 @@
 {
   "page_title": "Personalize Your AI",
   "main_title": "Personalize Your AI",
-  "subheader": "Answer 8 simple questions to generate a communication protocol that puts you in control. Decide whether your AI leads with questions or follows your commands.",
+  "subheader": "Answer a few simple questions to generate a communication protocol that puts you in control. Decide whether your AI leads with questions or follows your commands.",
   "demo_title": "See The Difference in Under 10 Seconds",
   "questionnaire_title": "Now, Personalize Your Own AI",
   "submit_btn_text": "Generate My Protocol",
@@ -13,52 +13,57 @@
   "q1_title": "You're given a new, vaguely defined project. Your first instinct is to:",
   "q1_optA": "Start building a first draft based on your best interpretation to get the ball rolling.",
   "q1_optB": "Schedule a quick meeting to ask clarifying questions before you begin.",
-
   "q2_title": "When you get a new piece of technology, you typically:",
   "q2_optA": "Turn it on and start using it, figuring things out as you go.",
   "q2_optB": "Skim the quick-start guide or watch a short setup video first.",
-
   "q3_title": "You're at a party where you don't know many people. You're more likely to:",
   "q3_optA": "Find one or two people and have a deeper conversation.",
   "q3_optB": "Circulate and engage in several lighter conversations.",
-
   "q4_title": "A friend is facing a problem and asks for your advice. You tend to:",
   "q4_optA": "Offer a direct solution or a clear next step.",
   "q4_optB": "Ask more questions to understand their feelings and the nuances of the situation.",
-
   "q5_title": "When researching a topic online, you get frustrated by:",
   "q5_optA": "Long, rambling articles that take too long to get to the point.",
   "q5_optB": "Simplistic summaries that lack sources and leave out important details.",
-
   "q6_title": "You're planning a vacation. Your plan looks more like:",
   "q6_optA": "A list of key destinations and a general idea of the schedule.",
   "q6_optB": "A detailed itinerary with reservations and timings.",
-
   "q7_title": "When you hear a surprising news headline, your first thought is:",
   "q7_optA": "'Interesting, I'll file that away.'",
   "q7_optB": "'Who reported this? Let me find a second source.'",
-
-  "q8_title": "(Optional) If you know your 16-type personality, please select it:",
-  "q8_options": [
+  "q8_title": "You're drafting an important email to a colleague. You'd prefer the AI to give you:",
+  "q8_optA": "A single, clear, formal, and direct draft that is ready to send.",
+  "q8_optB": "A few creative and friendly options to choose from, with different tones.",
+  "q9_title": "You're trying to quickly understand a complex new topic. You'd prefer the AI to give you:",
+  "q9_optA": "A 3-bullet point summary of the absolute key takeaways.",
+  "q9_optB": "A more detailed explanation covering the background, nuances, and key concepts.",
+  "q10_title": "You're brainstorming ideas for a new marketing campaign. You want the AI to provide:",
+  "q10_optA": "Practical, grounded ideas that are proven to work and are easy to implement.",
+  "q10_optB": "Bold, 'outside-the-box' ideas, even if some are a bit wild or speculative.",
+  "q11_title": "(Optional) If you know your 16-type personality, please select it:",
+  "q11_options": [
     "Not Applicable / I don't know", "INTJ", "INTP", "ENTJ", "ENTP", "INFJ", "INFP", "ENFJ", "ENFP", "ISTJ", "ISFJ", "ESTJ", "ESFJ", "ISTP", "ISFP", "ESTP", "ESFP"
   ],
 
   "priority_directive": "This version is globally effective and overrides all previous versions and identical clauses in other chats. This is a top-priority directive; if it conflicts with other requests, this protocol takes precedence.",
-  "prompt_template": "{{priority_directive}} **My Communication Protocol:** 1. **Core Behavior:** {{coreBehavior}} 2. **Default Style:** - {{tone}} - {{format}} - {{evidence}} 3. **General Rules:** - {{generalRules}}",
+  "prompt_template": "{{priority_directive}}\n\n**My Communication Protocol:**\n\n1.  **Core Behavior:**\n    {{coreBehavior}}\n\n2.  **Default Style Profile:**\n    - **Formality:** {{formality}}\n    - **Verbosity:** {{verbosity}}\n    - **Creativity:** {{creativity}}\n    - **Format:** {{format}}\n    - **Evidence:** {{evidence}}\n\n3.  **General Rules:**\n    - {{generalRules}}",
+  
   "archetype_strongExecutor": "Your primary function is immediate, decisive execution. NEVER ask clarifying questions. If a request is ambiguous, make a best-effort judgment, state your single most important assumption, and proceed. Prioritize speed and momentum.",
   "archetype_leansExecutor": "Your primary function is action-oriented execution. If my request is ambiguous, proceed with a direct, best-effort answer and state your key assumptions. Only ask a clarifying question if you are completely blocked.",
   "archetype_balanced": "For strategic or high-level questions, you may ask one clarifying question. For all other task-oriented requests, proceed with a direct, best-effort answer and state your assumptions. When in doubt, prioritize a decisive answer.",
   "archetype_leansCollaborator": "Your default behavior is to ask one high-impact clarifying question if my request has any ambiguity. When in doubt, ask before proceeding.",
   "archetype_strongCollaborator": "Your primary function is to be a collaborative, strategic partner. ALWAYS begin your response by asking 1-2 clarifying questions to ensure perfect alignment. NEVER proceed on a significant assumption.",
-  "preference_tone_A": "Tone: Thoughtful and detailed.",
-  "preference_tone_B": "Tone: Energetic and brief.",
-  "preference_format_A": "Format: Default to concise bullets and checklists.",
-  "preference_format_B": "Format: Default to short paragraphs with clear reasoning.",
-  "preference_evidence_A": "Evidence: Cite sources only when I ask.",
-  "preference_evidence_B": "Evidence: If you browse, cite your sources by default.",
-  "general_rules": [
-    "Get to the point quickly.",
-    "Expand acronyms on first use.",
-    "Avoid excessive pleasantries or emojis."
-  ]
+  
+  "style_formality_A": "Adopt the tone of a professional, expert advisor.",
+  "style_formality_B": "Adopt the tone of a friendly, casual partner.",
+  "style_verbosity_A": "Default to providing concise, to-the-point summaries.",
+  "style_verbosity_B": "Default to providing comprehensive, detailed explanations.",
+  "style_creativity_A": "Prioritize practical, grounded, and well-vetted information.",
+  "style_creativity_B": "Prioritize speculative, imaginative, and 'outside-the-box' ideas.",
+  "style_format_A": "Default to concise formats like bullets and checklists.",
+  "style_format_B": "Default to short paragraphs with clear reasoning.",
+  "style_evidence_A": "Cite sources only when I ask.",
+  "style_evidence_B": "If you browse, cite your sources by default.",
+  
+  "general_rules": "Get to the point quickly.\nExpand acronyms on first use.\nAvoid excessive pleasantries or emojis."
 }
