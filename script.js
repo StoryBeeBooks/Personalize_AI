@@ -120,6 +120,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 indexAxis: 'y',
                 responsive: true,
                 maintainAspectRatio: false,
+                layout: {
+                    padding: {
+                        left: 25 // Adds padding to the left to prevent labels from being cut off
+                    }
+                },
                 barPercentage: 0.5,
                 scales: {
                     y: {
