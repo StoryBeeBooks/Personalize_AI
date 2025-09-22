@@ -82,10 +82,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const ctx = document.getElementById('stats-chart').getContext('2d');
         const archetypes = ['archetype_strongExecutor', 'archetype_leansExecutor', 'archetype_balanced', 'archetype_leansCollaborator', 'archetype_strongCollaborator'];
         
-        // Use the wrapLabel function for dynamic labels
         const labels = archetypes.map(key => {
             const labelText = i18next.t(key.replace('archetype_', 'archetype_label_'));
-            return wrapLabel(labelText, 15); // 15 is a good character limit for mobile
+            return wrapLabel(labelText, 15); 
         });
 
         const dataPoints = archetypes.map(key => stats[key] || 0);
@@ -105,7 +104,6 @@ document.addEventListener('DOMContentLoaded', () => {
             'rgba(0, 113, 227, 1)',
         ];
 
-
         new Chart(ctx, {
             type: 'bar',
             data: {
@@ -121,12 +119,12 @@ document.addEventListener('DOMContentLoaded', () => {
             options: {
                 indexAxis: 'y',
                 responsive: true,
-                maintainAspectRatio: false, // Important for responsive height
-                barPercentage: 0.5, // Makes bars slimmer
+                maintainAspectRatio: false,
+                barPercentage: 0.5,
                 scales: {
                     y: {
                         ticks: {
-                            autoSkip: false // Ensures all labels are shown
+                            autoSkip: false
                         }
                     },
                     x: { beginAtZero: true, ticks: { callback: value => value + '%' } }
@@ -155,7 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         renderQuestionnaire();
         if (statsSection.style.display === 'block') {
-            fetchAndDisplayStats(); // Re-render stats for language change
+            fetchAndDisplayStats();
         }
     }
 
@@ -199,7 +197,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 optionsWrapper.addEventListener('click', handleOptionClick);
             }
             questionArea.appendChild(questionBlock);
-            // This timeout adds the 'visible' class, triggering the CSS animation
             setTimeout(() => {
                 questionBlock.classList.add('visible');
             }, index * 50);
