@@ -9,6 +9,7 @@
   "copy_btn_title": "複製到剪貼簿",
   "copy_notification_text": "已複製！",
   "results_instructions": "複製您的協議，並將其作為第一條訊息貼到任何新的AI聊天中，即可立即個性化您的對話。",
+  "restart_message": "刷新頁面以重新開始。",
 
   "q1_title": "你接手一個定義模糊的新專案，你的第一反應是：",
   "q1_optA": "根據自己最好的理解，開始建構初稿，讓專案先滾動起來。",

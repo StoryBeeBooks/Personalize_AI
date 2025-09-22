@@ -215,6 +215,14 @@ h2 {
 #copy-btn:hover { background: #fff; }
 #copy-btn svg { width: 16px; height: 16px; stroke: var(--text-secondary); }
 
+#restart-message {
+  text-align: center;
+  margin-top: 2rem;
+  color: var(--text-secondary);
+  font-style: italic;
+  font-size: 1rem;
+}
+
 #copy-notification {
   text-align: center;
   margin-top: 1rem;

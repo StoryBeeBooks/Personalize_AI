@@ -9,6 +9,7 @@
   "copy_btn_title": "Copy to Clipboard",
   "copy_notification_text": "Copied!",
   "results_instructions": "Copy your protocol and paste it as the first message in any new AI chat to instantly personalize the conversation.",
+  "restart_message": "Refresh the page to restart.",
 
   "q1_title": "You're given a new, vaguely defined project. Your first instinct is to:",
   "q1_optA": "Start building a first draft based on your best interpretation to get the ball rolling.",

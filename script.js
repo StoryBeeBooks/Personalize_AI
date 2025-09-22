@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const langSwitcher = document.getElementById('lang-switcher');
     const questionArea = document.getElementById('question-area');
     const submitBtn = document.getElementById('submit-btn');
+    const restartMessage = document.getElementById('restart-message');
     const resultsContainer = document.getElementById('results-container');
     const promptOutput = document.getElementById('prompt-output');
     const copyBtn = document.getElementById('copy-btn');
@@ -175,6 +176,11 @@ document.addEventListener('DOMContentLoaded', () => {
         promptOutput.value = finalPrompt;
         resultsContainer.style.display = 'block';
         resultsContainer.scrollIntoView({ behavior: 'smooth' });
+
+        // Hide questionnaire and show restart message
+        questionArea.style.display = 'none';
+        submitBtn.style.display = 'none';
+        restartMessage.style.display = 'block';
     }
 
     function copyPrompt() {

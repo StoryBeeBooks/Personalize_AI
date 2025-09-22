@@ -9,6 +9,7 @@
   "copy_btn_title": "Copiar al portapapeles",
   "copy_notification_text": "¡Copiado!",
   "results_instructions": "Copia tu protocolo y pégalo como el primer mensaje en cualquier nuevo chat de IA para personalizar instantáneamente la conversación.",
+  "restart_message": "Actualiza la página para reiniciar.",
 
   "q1_title": "Te asignan un proyecto nuevo y vagamente definido. Tu primer instinto es:",
   "q1_optA": "Empezar a construir un primer borrador basado en tu mejor interpretación para poner las cosas en marcha.",

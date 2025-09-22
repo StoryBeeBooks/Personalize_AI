@@ -9,6 +9,7 @@
   "copy_btn_title": "复制到剪贴板",
   "copy_notification_text": "已复制！",
   "results_instructions": "复制您的协议，并将其作为第一条消息粘贴到任何新的AI聊天中，即可立即个性化您的对话。",
+  "restart_message": "刷新页面以重新开始。",
 
   "q1_title": "你接手一个定义模糊的新项目，你的第一反应是：",
   "q1_optA": "根据自己最好的理解，开始构建初稿，让项目先滚动起来。",

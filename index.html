@@ -42,11 +42,9 @@ layout: null
       </section>
 
       <section id="questionnaire-container">
-        <h2 data-i18n="questionnaire_title">Answer the questions to generate your personality-setting prompt-output</h2>
-        <div id="question-area">
-            <!-- Questions are dynamically generated here by JavaScript -->
-        </div>
-        <button id="submit-btn" style="display: none;" data-i18n="submit_btn_text">Generate My Protocol</button>
+        <div id="question-area"></div>
+        <button id="submit-btn" class="visible" style="display: none;" data-i18n="submit_btn_text">Generate My Protocol</button>
+        <p id="restart-message" style="display: none;" data-i18n="restart_message">Refresh the page to restart.</p>
       </section>
 
       <section id="results-container" style="display: none;">
