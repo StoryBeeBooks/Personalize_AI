@@ -254,27 +254,37 @@ h2 {
   font-weight: 600;
 }
 
-.results-instructions {
-  font-size: 0.95rem;
-  color: var(--text-secondary);
-  text-align: center;
-  margin: 1.5rem auto 0 auto;
-  max-width: 550px;
+.results-instructions { text-align: center; font-size: 0.9rem; color: var(--text-secondary); margin-top: 1.5rem; max-width: 500px; margin-left: auto; margin-right: auto; }
+
+/* 7. LLM Links Section */
+#llm-section { margin-top: 4rem; }
+.llm-links-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1rem;
+}
+.llm-link-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  background-color: var(--light-gray-bg);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+.llm-link-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
+  background-color: #fff;
+  color: var(--accent-blue);
 }
 
-/* 6. Animations & Responsive */
-.question-block {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
-}
-
-.question-block.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-
+/* 8. Responsive */
 @media (max-width: 600px) {
   body { padding: 2rem 1rem; }
   main { padding: 1.5rem; }

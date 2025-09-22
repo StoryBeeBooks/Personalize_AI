@@ -68,13 +68,13 @@
   
   "general_rules": "快速切入重点。\n首次使用时展开缩略语。\n避免过多的客套话或表情符号。",
 
-  "stats_title": "我们的用户如何个性化AI",
+  "stats_title": "数据分析",
   "stats_subheader_prefix": "基于",
-  "stats_subheader_suffix": "已生成的协议",
+  "stats_subheader_suffix": "已生成的个性化提示词",
   "stats_chart_label": "用户百分比",
-  "archetype_label_strongExecutor": "强执行者",
+  "archetype_label_strongExecutor": "强执行者（希望AI直接给出答案，不要问问题）",
   "archetype_label_leansExecutor": "偏向执行者",
-  "archetype_label_balanced": "平衡型",
+  "archetype_label_balanced": "平衡型（希望AI在某些情况下问问题）",
   "archetype_label_leansCollaborator": "偏向协作者",
-  "archetype_label_strongCollaborator": "强协作者"
+  "archetype_label_strongCollaborator": "强协作者（希望AI在对话中问更多问题"
 }

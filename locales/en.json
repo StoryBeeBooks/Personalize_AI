@@ -68,13 +68,13 @@
   
   "general_rules": "Get to the point quickly.\nExpand acronyms on first use.\nAvoid excessive pleasantries or emojis.",
 
-  "stats_title": "How Our Users Personalize AI",
+  "stats_title": "Statistics",
   "stats_subheader_prefix": "Based on",
-  "stats_subheader_suffix": "protocols generated",
+  "stats_subheader_suffix": "personalized prompts generated",
   "stats_chart_label": "% of Users",
-  "archetype_label_strongExecutor": "Strong Executor",
+  "archetype_label_strongExecutor": "Strong Executor (AI doesn't ask questions)",
   "archetype_label_leansExecutor": "Leans Executor",
-  "archetype_label_balanced": "Balanced",
+  "archetype_label_balanced": "Balanced (AI asks questions sometimes)",
   "archetype_label_leansCollaborator": "Leans Collaborator",
-  "archetype_label_strongCollaborator": "Strong Collaborator"
+  "archetype_label_strongCollaborator": "Strong Collaborator (AI asks questions before execute)"
 }
