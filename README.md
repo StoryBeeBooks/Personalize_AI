@@ -1,7 +1,7 @@
 # Personalize_AI
 A simple web app to generate personalized prompts for LLMs. Get the AI you want. Not the AI you're given.
 
-**[Live Demo Here](https://your-domain-name.com)**
+**[Live Demo Here](https://www.personalizeai.org)**
 
 Personalize_AI is a free, simple web application that helps you create a custom communication protocol for any LLM. By answering 8 simple questions, you can generate a powerful master prompt that makes your AI assistant truly understand your unique communication style.
 
