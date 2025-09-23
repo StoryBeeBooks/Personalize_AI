@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         const labels = archetypes.map(key => {
             const labelText = i18next.t(key.replace('archetype_', 'archetype_label_'));
-            return wrapLabel(labelText, 15); 
+            return labelText;
         });
 
         const dataPoints = archetypes.map(key => stats[key] || 0);
@@ -122,17 +122,72 @@ document.addEventListener('DOMContentLoaded', () => {
                 maintainAspectRatio: false,
                 layout: {
                     padding: {
-                        left: 25 // Adds padding to the left to prevent labels from being cut off
+                        left: 25
                     }
                 },
-                barPercentage: 0.5,
+                barPercentage: 0.4,
                 scales: {
                     y: {
                         ticks: {
-                            autoSkip: false
+                            autoSkip: false,
+                            maxRotation: 0,
+                            minRotation: 0,
+                            callback: function(value, index) {
+                                const label = this.getLabelForValue(value);
+                                // Use consistent 100px width for all languages
+                                const maxWidth = 100;
+                                const ctx = this.chart.ctx;
+                                ctx.font = this.font;
+                                
+                                // Check if Chinese language
+                                if (i18next.language.startsWith('zh')) {
+                                    // Character-by-character wrapping for Chinese
+                                    let lines = [];
+                                    let currentLine = '';
+                                    
+                                    for(let i = 0; i < label.length; i++) {
+                                        const char = label[i];
+                                        const testLine = currentLine + char;
+                                        const width = ctx.measureText(testLine).width;
+                                        
+                                        if(width < maxWidth || currentLine.length === 0) {
+                                            currentLine += char;
+                                        } else {
+                                            lines.push(currentLine);
+                                            currentLine = char;
+                                        }
+                                    }
+                                    if(currentLine.length > 0) {
+                                        lines.push(currentLine);
+                                    }
+                                    return lines;
+                                } else {
+                                    // Word-based wrapping for languages with spaces
+                                    let words = label.split(' ');
+                                    let lines = [];
+                                    let currentLine = words[0];
+                                    
+                                    for(let i = 1; i < words.length; i++) {
+                                        const width = ctx.measureText(currentLine + ' ' + words[i]).width;
+                                        if(width < maxWidth) {
+                                            currentLine += ' ' + words[i];
+                                        } else {
+                                            lines.push(currentLine);
+                                            currentLine = words[i];
+                                        }
+                                    }
+                                    lines.push(currentLine);
+                                    return lines;
+                                }
+                            }
                         }
                     },
-                    x: { beginAtZero: true, ticks: { callback: value => value + '%' } }
+                    x: { 
+                        beginAtZero: true,
+                        ticks: { 
+                            callback: value => value + '%'
+                        }
+                    }
                 },
                 plugins: {
                     legend: { display: false },
